@@ -1,0 +1,45 @@
+/** 
+ * 描述：首页
+
+ */
+@charset "utf-8";
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input { padding: 0; margin: 0; }
+h1, h2, h3, h4, h5, h6, pre, code, address, caption, cite, code, em, strong, table, th, td { font-size: 1em; font-style: normal; font-weight: normal; }
+strong { font-weight: bold; }
+ul, ol { list-style: none outside none; }
+fieldset, img { border: medium none; }
+caption, th { text-align: left; }
+table { border-collapse: collapse; border-spacing: 0; }
+body { font: 12px/150% "Hiragino Sans GB", "Microsoft Yahei", arial, 宋体, "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color: #666666; background: #fff none repeat scroll 0 0; margin: 0; padding: 0; }
+i, cite, em { font-style: normal; }
+article, aside, dialog, footer, header, section, footer, nav, figure, menu { display:block; }
+.w { width: 100% }
+.wrapper { width: 1200px; margin: auto; }
+.fl { float: left; }
+.fr { float: right; }
+.block { display: block; }
+.none { display: none; }
+.goods-price { font-family: Verdana; }
+.goods-price em { font-weight: 600; color: #C00; }
+.wt-appbar-tabs a.compare { display: none !important; }
+.ads-topbanner-box { text-align: center; display: block; width: 100%; overflow: hidden; }
+/* 首页焦点区域 */
+.i-slides-con { width: 100%; height: 408px; margin-bottom: 30px; position: relative; z-index: 1; }
+/* 满屏背静切换焦点图 */
+.full-screen-slides { width: 100%; height: 408px; position: relative; z-index: 1; }
+.full-screen-slides li { width: 100%; height: 100%; position: absolute; z-index: 1; top: 0; left: 0; }
+.full-screen-slides li a { display: block; width:776px; height:408px; text-indent:-9999px; margin-left: -388px; position: absolute; z-index: 2; left: 50%; }
+.full-screen-slides-pagination { font-size: 0; *word-spacing:-1px/*IE6、7*/;
+text-align: center; display:block; list-style:none; width:600px; height: 6px; padding:7px 8px; margin-left: -325px; position:absolute; left:50%; top: 360px; z-index: 9; }
+.full-screen-slides-pagination li { vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display:inline/*IE6、7*/;
+list-style:none; border-radius: 50%; margin-left:4px; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#3F000000', endColorstr='#3F000000');
+background:rgba(0,0,0,0.25); overflow: hidden; cursor: pointer; *zoom:1;
+}
+.full-screen-slides-pagination a { display: block; width:18px; height:18px; line-height:18px; overflow: hidden; text-align: center; color:#fff; font-family:arial; font-size:12px; text-indent:-9999px; }
+.full-screen-slides-pagination .current { background: #F30; }
+.i-slides-con .banner-arrow { width: 762px; position: absolute; top: 95px; left: 50%; margin-left: -395px; z-index:99999 }
+.i-slides-con .arrow { background: url(../images/home_bg.png) no-repeat; width: 45px; height: 100px; position: absolute; z-index: 2; top:25px; cursor: pointer; }/*40px*/
+.i-slides-con .pre { background-position: 0 -100px; left:6px; }
+.i-slides-con .next { background-position: -45px -100px; right: 0; }
+.i-slides-con .banner-arrow:hover .arrow { opacity: 0.5!important; }
+.i-slides-con .banner-arrow .arrow:hover { opacity: 0.8!important; }

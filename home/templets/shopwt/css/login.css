@@ -1,0 +1,172 @@
+/** 
+ * 描述：登录 注册
+ * by sh op wt.c om
+ */
+@charset "utf-8";
+.qt-table, table { border-collapse: collapse; border-spacing: 0 }
+* { -webkit-box-sizing: border-box; box-sizing: border-box }
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video { border: 0; font: inherit; vertical-align: baseline; text-align: left; font-family: "Microsoft YaHei"; margin: 0; padding: 0; color: #333 }
+.clearfix:after, .qt-header-nav:after { font-size: 0; visibility: hidden; clear: both }
+ol, ul { list-style: none }
+blockquote, q { quotes: none }
+blockquote:after, blockquote:before, q:after, q:before { content: none }
+.clearfix:after, .qt-header-nav .list-box dt:after, .qt-header-nav:after, .qt-header-right .user-info:after { content: " " }
+.clearfix:after { display: block; height: 0 }
+.qt-header-box, .qt-header-nav .icon-down { display: inline-block; vertical-align: middle }
+form, input, textarea { font-family: "Microsoft YaHei"; outline: 0 }
+a { color: #666; text-decoration: none; cursor: pointer }
+h1, h2, h3, h4 { font-weight: 400 }
+.fl { float: left }
+.fr { float: right }
+.w1200 { width: 1200px; margin: 0 auto }
+body { background-color: #f6f6f6 }
+.qt-header-other { position: relative; z-index: 100; height: 76px; padding:8px 0;background-color: #fff; -webkit-box-shadow: 0 1px 6px 0 rgba(0,0,0,.15); box-shadow: 0 1px 6px 0 rgba(0,0,0,.15); min-width: 1200px }
+.qt-btn:hover, .qt-model .model-btn>a:hover, .qt-model .model-content { -webkit-box-shadow: 0 2px 8px 0 rgba(0,0,0,.15); box-shadow: 0 2px 8px 0 rgba(0,0,0,.15) }
+.qt-header-other .qt-header-nav { padding-left: 15px }
+.qt-header-other .qt-logo { height: 60px; width: 190px;  display: inline-block; vertical-align: middle }
+.qt-header-other .qt-logo>a { display: block; width: 190px; height: 60px; overflow:hidden;}
+.qt-header-other .qt-logo>a img{ display: block; width: 100%;}
+.qt-btn, .qt-header-other .header-title { display: inline-block; vertical-align: middle }
+.qt-header-other .header-title { height: 52px; font-size: 24px; line-height: 52px; padding-left: 17px; margin-left: 20px; color: #666; border-left: 1px solid #e3e3e3 }
+.qt-btn, .qt-footer-other { line-height: 22px; text-align: center }
+.qt-header-other .vip-center { margin: 0 }
+.qt-header-other .vip-center a { padding-left: 0 }
+.qt-header-other .qt-header-right .user-img { margin-left: 5px }
+.qt-header-other .qt-header-box.searched .qt-search-input { -webkit-transition: width .2s; transition: width .2s; width: 600px }
+.qt-header-other .qt-header-box.searched .search-input { -webkit-transition: width .2s; transition: width .2s; width: 450px }
+.qt-header-other .search-input { width: 130px }
+.qt-footer-other { min-width: 1200px; margin-top: 20px; font-size: 12px; color: #666; border-top: 1px solid #e5e5e5 }
+.btn-blue-linear a, .btn-green-linear a, .btn-orange-linear a { color: #fff!important }
+.header-fixed { width: 100%; visibility: hidden; position: fixed; top: -80px; z-index: 500 }
+.qt-btn { width: 200px; border-radius: 4px; border: 1px solid #ccc; cursor: pointer }
+.qt-btn a { display: block; height: 100%; text-align: center }
+.qt-btn:hover { -webkit-transition: all .2s; transition: all .2s; opacity: .9 }
+.btn-green-linear { background-image: -webkit-gradient(linear, left top, right top, from(#17e66c), to(#10c55b)); background-image: -webkit-linear-gradient(left, #17e66c, #10c55b); background-image: linear-gradient(to right, #17e66c, #10c55b); FILTER:progid:DXImageTransform.Microsoft.Gradient(gradientType=1, startColorStr=#17e66c, endColorStr=#10c55b);
+border: 0 }
+.btn-green-linear:hover { background-image: -webkit-gradient(linear, left top, right top, from(#22f48a), to(#10c55b)); background-image: -webkit-linear-gradient(left, #22f48a, #10c55b); background-image: linear-gradient(to right, #22f48a, #10c55b); FILTER:progid:DXImageTransform.Microsoft.Gradient(gradientType=1, startColorStr=#22f48a, endColorStr=#10c55b)
+}
+.btn-orange-linear { background-image: -webkit-gradient(linear, left top, right top, from(#fda233), to(#fd8320)); background-image: -webkit-linear-gradient(left, #fda233, #fd8320); background-image: linear-gradient(to right, #fda233, #fd8320); FILTER:progid:DXImageTransform.Microsoft.Gradient(gradientType=1, startColorStr=#fda233, endColorStr=#fd8320);
+border: 0 }
+.btn-orange-linear:hover { background-image: -webkit-gradient(linear, left top, right top, from(#ffc14b), to(#fd8320)); background-image: -webkit-linear-gradient(left, #ffc14b, #fd8320); background-image: linear-gradient(to right, #ffc14b, #fd8320); FILTER:progid:DXImageTransform.Microsoft.Gradient(gradientType=1, startColorStr=#ffc14b, endColorStr=#fd8320)
+}
+.btn-blue-linear, .btn-blue-linear:hover { FILTER:progid:DXImageTransform.Microsoft.Gradient(gradientType=1, startColorStr=#1f9dfe, endColorStr=#1980ff)
+}
+.btn-blue-linear { background-image: -webkit-gradient(linear, left top, right top, from(#0f98ff), to(#1980ff)); background-image: -webkit-linear-gradient(left, #0f98ff, #1980ff); background-image: linear-gradient(to right, #0f98ff, #1980ff); border: 0 }
+.btn-blue-linear:hover { background-image: -webkit-gradient(linear, left top, right top, from(#1f9dfe), to(#1980ff)); background-image: -webkit-linear-gradient(left, #1f9dfe, #1980ff); background-image: linear-gradient(to right, #1f9dfe, #1980ff) }
+.btn-green { background-color: #edfff4; border: 1px solid #10c55b }
+.btn-green a { color: #10c55b!important }
+.btn-blue { background-color: #edf7ff; border: 1px solid #1980ff }
+.btn-blue a { color: #1980ff!important }
+.btn-gray { background-color: #e3e3e3!important; border: 1px solid #e3e3e3 }
+.btn-gray a { color: #333!important }
+.text-orange, .text-orange-b { color: #fd8320!important }
+.text-green, .text-green-b { color: #10c55b!important }
+.text-blue, .text-blue-b { color: #0f98ff!important }
+
+.login-main, .login-main>div { position: relative }
+.login-wrap, .login-wrap .login-content { overflow: hidden }
+.login-footer { border: 0; margin-top: 20px }
+.login-main { min-width: 1200px; height: 474px }
+.login-main .login-wrap { position: absolute; top: 18px; right: 0 }
+.login-wrap { width: 400px; height: 440px; border-radius: 4px; background-color: #fff; -webkit-box-shadow: 0 4px 6px 0 rgba(0,0,0,.2); box-shadow: 0 4px 6px 0 rgba(0,0,0,.2) }
+.login-wrap .header-btn, .login-wrap .login-hearder { height: 62px; text-align: center }
+.login-wrap .header-btn { display: inline-block; width: 74px; position: relative; font-size: 20px; line-height: 62px; color: #666; cursor: pointer }
+.login-wrap .header-btn:first-child { margin-right: 84px }
+.login-wrap .header-btn:after { content: " "; position: absolute; bottom: 0; left: 0; width: 74px; height: 2px; background: #10c55b; visibility: hidden; -webkit-transform: scale(.2); -ms-transform: scale(.2); transform: scale(.2); -webkit-transition: all .2s; transition: all .2s }
+.login-wrap .header-btn.on, .login-wrap .header-btn:hover { color: #10c55b }
+.login-wrap .header-btn.on:after, .login-wrap .header-btn:hover:after { visibility: visible; -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1) }
+.login-wrap .account-box, .login-wrap .login-box, .login-wrap .phone-box { display: none }
+.login-wrap .login-others { text-align: center; padding-top: 50px; -webkit-transition: all .28s; transition: all .28s }
+.login-wrap .login-others .other-logo { display: inline-block; width: 81px; margin-left: 38px; text-align: center }
+.login-wrap .login-others .other-logo:first-child { margin-left: 0 }
+.login-wrap .login-others .other-logo i { width: 82px; height: 82px; display: block; background: url(../images/login/login_v6.png) no-repeat; margin-bottom: 20px }
+.login-wrap .login-others .other-logo.logo-wechat i { background-position: -168px 0 }
+.login-wrap .login-others .other-logo.logo-wechat:hover i { background-position: -168px -84px }
+.login-wrap .login-others .other-logo.logo-qq i { background-position: 0 0 }
+.login-wrap .login-others .other-logo.logo-qq:hover i { background-position: 0 -84px }
+.login-wrap .login-others .other-logo.logo-weibo i { background-position: -84px 0 }
+.login-wrap .login-others .other-logo.logo-weibo:hover i { background-position: -84px -84px }
+.login-wrap .login-others .other-logo span { font-size: 14px; color: #888 }
+.login-wrap .login-others-cards { text-align: center; padding-top: 28px; -webkit-transition: all .28s; transition: all .28s }
+.login-wrap .login-others-cards .other-logo { display: inline-block; width: 110px; height: 40px; line-height: 40px; margin-left: 5px; text-align: center; border-radius: 4px }
+.login-wrap .login-others-cards .other-logo:hover { opacity: .8; FILTER: alpha(opacity=80) }
+.login-wrap .login-others-cards .other-logo:first-child { margin-left: 0 }
+.login-wrap .login-others-cards .other-logo i { vertical-align: sub; display: inline-block; background: url(../images/login/login_v6.png) no-repeat }
+.login-wrap .login-others-cards .other-logo.logo-wechat { background-color: #0b0 }
+.login-wrap .login-others-cards .other-logo.logo-wechat i { height: 22px; width: 26px; background-position: -23px -168px }
+.login-wrap .login-others-cards .other-logo.logo-qq { background-color: #19a9f1 }
+.login-wrap .login-others-cards .other-logo.logo-qq i { height: 21px; width: 20px; background-position: 0 -168px }
+.login-wrap .login-others-cards .other-logo.logo-weibo { background-color: #ed2b2f }
+.login-wrap .login-others-cards .other-logo.logo-weibo i { height: 20px; width: 24px; background-position: -52px -168px }
+.login-wrap .login-others-cards .other-logo span { display: inline-block; font-size: 14px; color: #fff }
+.login-wrap .cutting-line { position: relative; width: 340px; margin: 12px auto; text-align: center }
+.login-wrap .cutting-line span { position: relative; z-index: 2; color: #888; padding: 0 5px; font-size: 14px; background-color: #fff }
+.login-wrap .cutting-line:after { content: " "; position: absolute; left: 0; top: 10px; width: 340px; height: 1px; background-color: #eaeaea; z-index: 1 }
+.login-wrap .login-form { width: 340px; margin: 0 auto }
+.login-wrap .login-form .input-inline { width: 340px; margin-bottom: 8px; position: relative }
+.login-wrap .login-form .input-inline input { border: 1px solid #e3e3e3; border-radius: 4px; outline: 0; width: 340px; height: 40px; line-height: 40px; font-size: 14px; color: #ccc; padding-left: 42px }
+.login-wrap .login-form .input-inline input:focus { border: 1px solid #10c55b }
+.login-wrap .login-form .input-inline input.danger { border: 1px solid #fda233 }
+.login-wrap .login-form .input-inline .input-icon { background: url(../images/login/login_v6.png) no-repeat; position: absolute; left: 10px; top: 10px }
+.login-wrap .login-form .input-inline .input-icon.i-phone { height: 22px; width: 14px; background-position: -141px -168px }
+.login-wrap .login-form .input-inline .input-icon.i-user { height: 20px; width: 18px; background-position: -79px -168px }
+.login-wrap .login-form .input-inline .input-icon.i-password { height: 19px; width: 18px; background-position: -120px -168px }
+.login-wrap .login-form .input-inline .warning-text { font-size: 12px; overflow: hidden; height: 0; -webkit-transition: all .2s; transition: all .2s }
+.login-wrap .login-form .input-inline .warning-text.show { padding-top: 5px; height: auto }
+.login-wrap .login-form .input-inline .warning-text span { color: #666 }
+.login-wrap .login-form .input-inline .warning-text i { display: inline-block; vertical-align: sub; height: 14px; width: 14px; background: url(../images/login/login_v6.png) no-repeat }
+.login-wrap .login-form .input-inline .warning-text i.warning-icon { background-position: -17px -193px }
+.login-wrap .login-form .input-inline .warning-text i.warning-icon+span { color: #ccc }
+.login-wrap .login-form .input-inline .warning-text i.success-icon { background-position: 0 -193px }
+.login-wrap .login-form .input-inline .warning-text i.danger-icon { background-position: -34px -193px }
+.login-wrap .login-form .input-inline.captcha input { width: 230px; padding-left: 10px }
+.login-wrap .login-form .input-inline.captcha .btn-captcha { position: absolute; top: 0; right: 0; width: 140px; height: 40px; line-height: 40px; vertical-align: -1px }
+.login-wrap .login-form .input-inline.captcha .btn-captcha.disabled { pointer-events: none; background-color: #e3e3e3; border-color: #e3e3e3 }
+.login-wrap .login-form .input-inline.captcha .btn-captcha.disabled a { color: #fff!important }
+.login-wrap .login-form .input-inline.captcha .btn-captcha a { font-size: 14px }
+.login-wrap .login-form .login-switch { text-align: center; margin-top: 12px; color: #666; font-size: 12px; width: 100%; }
+.login-wrap .login-form .login-switch a { color: #666; font-size: 14px }
+.login-wrap .login-form .login-switch a:hover { color: #10c55b }
+.login-wrap .login-form .login-switch a.text-green { font-size: 12px }
+.login-wrap .login-form .login-submit { width: 340px; height: 40px; line-height: 40px; font-size: 14px; color: #fff;}
+.login-wrap .login-footer { margin-top: 60px }
+.login-wrap .login-type { text-align: center; color: #10c55b }
+.login-wrap .login-type a { color: #10c55b; font-size: 16px }
+.login-wrap .login-type a:hover { text-decoration: underline }
+.login-wrap .login-type a:first-child { position: relative; margin-right: 40px }
+.login-wrap .login-type a:first-child:after { position: absolute; top: 0; right: -20px; content: " "; width: 1px; height: 22px; background-color: #10c75c }
+.setting-main .login-hearder { color: #666; font-size: 20px; padding: 36px 0 30px; height: auto }
+.setting-main .login-hearder p { margin-top: 10px; color: #999; font-size: 14px; text-align: center }
+.setting-main .login-wrap { position: initial; margin: 40px auto 0; -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,.1); box-shadow: 0 2px 6px 0 rgba(0,0,0,.1); width: 524px; height: auto; padding-bottom: 50px }
+.setting-main .login-wrap .input-inline, .setting-main .login-wrap .input-inline input { margin-bottom: 10px }
+.setting-main .login-wrap .input-inline .warning-text.show { padding: 0; margin-top: -4px }
+.setting-main .setting-alert { width: 280px; height: 160px; margin: 0 auto; background: #FFF; border-radius: 4px; padding: 30px 0 }
+.setting-main .setting-alert .setting-success { background: url(../images/login/login_v6.png) -200px -168px no-repeat; height: 50px; width: 50px; margin: 0 auto 20px }
+.setting-main .setting-alert .setting-text { color: #666; font-size: 14px; text-align: center }
+.setting-main .setting-alert .setting-text a { text-decoration: underline; color: #10c55b }
+.qt-model-t .login-wrap { position: initial; margin: 0 auto }
+.qt-model-t .login-hearder { color: #666; font-size: 20px; text-align: center; padding-top: 20px; position: relative }
+.qt-model-t .login-hearder .login-close { position: absolute; top: 10px; right: 10px; background: url(../images/login/login_v6.png) -100px -168px no-repeat; height: 20px; width: 17px; cursor: pointer }
+.qt-model-t .login-p { text-align: center; margin-top: 30px }
+.qt-model-t .login-p a { font-size: 16px; color: #666 }
+.qt-model-t .login-p a:hover { color: #10c55b }
+.qt-model-t .login-others-cards { padding-top: 12px }
+
+.geetest_holder { width: 100%!important; }
+.img-code-a { display: inline-block; width: 20px; height: 20px; vertical-align: middle; margin-left: 8px; cursor: pointer; background: url(../images/login/img-code-bg.png) no-repeat; }
+#sendcode-captcha { display: none; }
+.agreement-handle { width: 16px; height: 16px; display: inline-block; vertical-align: sub; background: url(../images/login/index.png) no-repeat; margin-right: 5px; }
+.agreement-alert { text-align: center; font-size: 12px; color: #666; margin-top: 18px; }
+.agreement-alert .text { color: #666; }
+.agreement-alert .text:hover { color: #10c55b; }
+
+.wt-login-form label.error { color: #000; background: #FFF5D9 no-repeat 0 0; text-align: left; white-space: nowrap;  padding: 2px 8px 2px 8px; position: absolute; z-index: 2; top: 5px; left: 150px; }
+.wt-login-form label.error i { font-size: 24px; margin-right: 12px; color: #FF875A; vertical-align: middle;}
+.wt-login-form .captcha label.error { background: transparent none; width: 30px; padding: 0; top: 8px; right: 0; left: 145px; }
+
+.tabs-nav { margin-top: 30px; text-align: center; font-size: 0;  word-spacing:-1em;}
+.tabs-nav li { vertical-align: bottom; letter-spacing: normal; word-spacing: normal; text-align: center; display: inline-block; *display: inline; width: 40%; margin: 0 10px;height: 40px; margin-bottom: -1px; *zoom: 1;}
+.tabs-nav li { font-size: 18px; color: #999; line-height: 24px; padding-bottom: 13px; position: relative; z-index: 1;}
+.tabs-nav li a:hover { text-decoration: none; color: #000;}
+.tabs-nav li.on {  border-bottom: 2px solid #10c55b}
+.tabs-nav li.on a {color: #10c55b;}

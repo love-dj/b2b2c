@@ -1,0 +1,62 @@
+<?php
+/**
+ * 分销商品统计
+ *
+ *
+ *
+ * *
+
+ 
+
+ */
+
+
+
+defined('ShopWT') or exit('Access Denied By ShopWT');
+class store_fx_staControl extends BaseSellerControl {
+    public function __construct() {
+        parent::__construct();
+    }
+    /**
+     * 分销商品统计列表
+     *
+     */
+    public function indexWt() {
+        $model_goods = Model('goods');
+        $model_fx_goods = Model('fx_goods');
+        $condition = array();
+        $condition['store_id'] = $_SESSION['store_id'];
+        $condition['is_fx'] = 1;
+        $goods_list = $model_goods->getGoodsCommonList($condition, '*', 10);
+        Tpl::output('goods_list', $goods_list);
+        Tpl::output('show_page', $model_goods->showpage());
+        // 统计数据
+        $sta_list = $model_fx_goods->getDisStaList($goods_list);
+        Tpl::output('sta_list', $sta_list);
+        // 计算库存
+        $storage_array = $model_goods->calculateStorage($goods_list);
+        Tpl::output('storage_array', $storage_array);
+        self::profile_menu('fx_sta','index');
+        Tpl::showpage('fx_sta.index');
+    }
+    /**
+     * 小导航
+     *
+     * @param string    $menu_type  导航类型
+     * @param string    $menu_key   当前导航的menu_key
+     * @return
+     */
+    private function profile_menu($menu_type,$menu_key='') {
+        $menu_array = array();
+        switch ($menu_type) {
+            case 'fx_sta':
+                $menu_array = array(
+                    array('menu_key'=>'index','menu_name'=>'商品统计 ',  'menu_url'=>'index.php?w=store_fx_sta&t=index')
+                );
+                break;
+        }
+        Tpl::output('member_menu',$menu_array);
+        Tpl::output('menu_key',$menu_key);
+    }
+
+}

@@ -1,0 +1,138 @@
+<link href="http://b2b2c.longbasz.com/news/templets/news_special.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://b2b2c.longbasz.com/system/static/js/jcarousel/jquery.jcarousel.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://b2b2c.longbasz.com/system/static/js/slidesjs/jquery.slides.min.js" charset="utf-8"></script>
+<link href="http://b2b2c.longbasz.com/system/static/js/jcarousel/skins/personal/skin.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+$(document).ready(function() {
+    if($('#index1_1_1_content').children().length > 0) {
+        $('#index1_1_1_content').slidesjs({
+            play: {
+                active: true,
+                    interval: 5000,
+                    auto: true,
+                    pauseOnHover: false,
+                    restartDelay: 2500
+            },
+            callback: {
+                complete: function(number) {
+                    var $item = $(".slidesjs-pagination-item");
+                    $item.removeClass("current");
+                    $item.eq(number - 1).addClass("current");
+                }
+            },
+                width: 380,
+                height: 260
+        });
+        $(".slidesjs-pagination-item").eq(0).addClass("current");
+    }
+
+    //图片延迟加载
+    $(".lazyload_container").wt_lazyload_init();
+    $("img").wt_lazyload();
+
+    //计算自定义块高度
+    var frames = $('.news-module-frame');
+    $.each(frames, function(index, frame) {
+        var boxs = $(frame).find('[wttype="news_module_content"]');
+        var height = 0;
+        $.each(boxs, function(index2, box) {
+            var box_height = $(box).height();
+            if(box_height > height) {
+                height = box_height;
+            }
+        });
+        boxs.height(height);
+    });
+});
+</script>
+<div class="news-index-module-index1 module-style-style1">
+  <div class="news-index-module-index1-1"> 
+    <!-- 封面图 -->
+    <div class="index1-1-1-content">
+        <div class="index1-1-1-content-ul-wrap">
+            <ul id="index1_1_1_content" style="height:260px;" wttype="object_module_edit">
+                            </ul>
+        </div>
+            </div>
+    <!-- 社区|专题 -->
+    <div class="news-index-module-index1-1-2">
+        <div id="index1_1_2_content" class="index1-1-2-content" wttype="object_module_edit">  </div>
+              </div>
+  </div>
+  <!-- 文章　-->
+  <div class="news-index-module-index1-2">
+    <div class="news-index-module-index1-2-1">
+      <div class="title-bar">
+        <h3 id="index1_2_1_title" wttype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-big">
+        <ul id="index1_2_1_1_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-recommand">
+        <ul id="index1_2_1_2_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+        <div class="articel-block">
+      <div class="title-bar">
+        <h3 id="index1_2_2_title" wttype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-special">
+        <ul id="index1_2_2_1_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-normal">
+        <ul id="index1_2_2_2_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+        <div class="articel-block">
+      <div class="title-bar">
+        <h3 id="index1_2_3_title" wttype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-special">
+        <ul id="index1_2_3_1_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-normal">
+        <ul id="index1_2_3_2_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+        <div class="articel-block">
+      <div class="title-bar">
+        <h3 id="index1_2_4_title" wttype="object_module_edit"></h3>
+              </div>
+      <div class="content-box content-special">
+        <ul id="index1_2_4_1_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+      <div class="content-box content-normal">
+        <ul id="index1_2_4_2_content" wttype="object_module_edit">
+                  </ul>
+              </div>
+    </div>
+      </div>
+  <!-- 商品分类　-->
+  <div class="news-index-module-index1-3">
+    <div class="title-bar">
+      <h3 id="index1_3_title" wttype="object_module_edit"></h3>
+          </div>
+    <div class="content-box mall-class">
+      <div id="index1_3_content" wttype="object_module_edit">  </div>
+            <div class="goto-mall"><a href="http://b2b2c.longbasz.com" target="_blank">进入商城</a></div>
+   </div>
+   <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">
+$(window).load(function() {
+//比例局中裁切显示图片
+	$(".news-index-module-index1-1-1 .t-img").VMiddleImg({"width":380,"height":230});
+    $(".bbs-theme-item .t-img").VMiddleImg({"width":160,"height":100});
+	$(".news-index-module-index1-2 .t-img").VMiddleImg({"width":120,"height":96});
+
+});
+</script>
+

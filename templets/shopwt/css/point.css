@@ -1,0 +1,308 @@
+/** 
+ * 描述：积分兑换页
+
+ */
+@charset "utf-8";
+body { background-color: #F5F5F5;}
+.wt-appbar-tabs a.compare { display: none !important;}
+.wtp-container { width: 1200px; margin: 0 auto 10px auto;}
+.wtp-base-box { border: solid 1px #FED4AE; overflow: hidden;}
+.wtp-member-left { background-color: #FFF; width: 297px; float: left; border-right: solid 1px #EEE;}
+.wtp-member-right { width: 900px; float:right; background: #fff}
+
+/*会员概述*/
+.wtp-member-info { padding: 9px 19px; overflow: hidden;}
+.wtp-member-info .avatar { width: 88px; height: 88px; float: left; position: relative; z-index: 1;}
+.wtp-member-info .avatar .frame { background: url(../images/point_bg.png) no-repeat 0 0; width: 88px; height: 88px; position: absolute; z-index: 2; top: 0; left: 0;}
+.wtp-member-info .avatar img { width: 80px; height: 80px; position: absolute; z-index: 1; top: 4px; left: 4px;}
+.wtp-member-info dl { display: block; width: 140px; float: left; margin: 10px 0 0 10px;}
+.wtp-member-info dt { font: 600 14px/20px "microsoft yahei"; margin-bottom: 6px;}
+.wtp-member-info dd { line-height: 22px;}
+
+/*会员等级*/
+.wtp-member-grade { background-color: #FFFBF3; text-align: center; width: 100%; padding: 9px 0; border-top: solid 1px #FED4AE;}
+.wtp-member-grade .progress-bar { font-size: 0; *word-spacing:-1px/*IE6、7*/; display: block;}
+.wtp-member-grade .progress-bar em,
+.wtp-member-grade .progress-bar span { vertical-align: middle; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; *zoom: 1;}
+.wtp-member-grade .progress-bar em { font: 12px/20px "microsoft yahei"; text-align: center; width: 30px;}
+.wtp-member-grade .progress-bar span { background-color: #CCC; width: 200px; height: 10px; border-radius: 5px;}
+.wtp-member-grade .progress-bar span i { background-color: #E4393C; display: block; height: 10px; border-radius: 5px;}
+.wtp-member-grade .progress { color: #AAA; text-align: center; margin-top: 5px;}
+.wtp-member-grade .progress em { font-weight: 600; color: #D83500; margin: 0 2px;}
+.wtp-member-grade .links { text-align: center; margin-top: 5px;}
+.wtp-member-grade .links a { color: #396;; margin: 0 20px;}
+/* 会员积分 */
+.wtp-member-point { font-size: 0; background-color: #FFF6E6; *word-spacing:-1px/*IE6、7*/; border-top: solid 1px #FED4AE;}
+.wtp-member-point dl { vertical-align: top; letter-spacing: normal; word-spacing: normal; text-align: center; display: inline-block; *display: inline/*IE7*/; width: 98px; margin: 10px 0; border-left: dotted 1px #FED4AE; *zoom: 1;}
+.wtp-member-point dt { font: 12px/30px "microsoft yahei"; color: #FF8400; height: 30px; padding: 10px 0 5px 0;}
+.wtp-member-point dt strong { font-size: 20px; font-weight: 400; margin-right: 4px;}
+.wtp-member-point dd { font: 12px/20px "microsoft yahei"; color: #555; height: 20px; padding: 5px 0 10px 0;}
+.wtp-member-point a { text-decoration: none;}
+/* 会员积分兑换购物车 */
+.wtp-memeber-pointcart { background-color: #FFF2DA; text-align: center; border-top: solid 1px #FED4AE;}
+.wtp-memeber-pointcart .btn { font: 14px/32px "microsoft yahei"; color: #FFF; background-color: #FFB577; display: inline-block; *display: inline/*IE7*/; width: 150px; height: 32px; margin: 19px auto; border-radius: 4px; position: relative; z-index: 1;*zoom: 1;}
+.wtp-memeber-pointcart .btn:hover { background-color: #FF8400; text-decoration: none;}
+.wtp-memeber-pointcart a em { font: 12px/18px Verdana; line-height: 18px; color: #FFF; background-color: #C11C1C; display: block; min-width: 10px; height: 18px; padding: 0 4px; border-radius: 9px; position: absolute; z-index: 1; top:-9px; right: 4px;}
+/* 会员未登录 */
+.wtp-not-login { background-color: #FFFBF3; height: 367px;}
+.wtp-not-login .member { text-align: center; padding: 30px 0 20px 0;}
+.wtp-not-login .member a { font: 18px/30px "microsoft yahei";}
+.wtp-not-login .member p { font: 14px/20px "microsoft yahei"; color: #777;}
+.wtp-not-login .function { font-size: 0; *word-spacing:-1px/*IE6、7*/; width: 260px; margin: 0 auto; padding: 22px 0; border-top: dotted 1px #FFB577;}
+.wtp-not-login .function i { background: url(../images/point_bg.png) no-repeat; vertical-align: top; letter-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 48px; height: 48px; margin: 0 20px 0 10px; *zoom: 1;}
+.wtp-not-login .function i.voucher { background-position: -170px -70px;}
+.wtp-not-login .function i.exchange { background-position: -218px -70px;}
+.wtp-not-login .function dl { vertical-align: top; letter-spacing: normal; display: inline-block; *display: inline/*IE7*/; *zoom: 1;}
+.wtp-not-login .function dt { font: 14px/28px "microsoft yahei"; color: #333;}
+.wtp-not-login .function dd { font-size: 12px; color: #777;}
+.wtp-not-login .button { text-align: center; margin-top: 20px;}
+
+/* 会员内容横向排列样式  */
+.wtp-member-top { background-color: #fff2da; height: 106px; border: solid 1px #FED4AE; overflow: hidden;}
+.wtp-member-top .wtp-member-info { background-color: #FFF; float: left;}
+.wtp-member-top .wtp-member-grade { width: auto; float: left; padding: 18px; border-top: 0; border-left: solid 1px #FED4AE;}
+.wtp-member-top .wtp-member-point { float: left; border-top: 0; border-left: solid 1px #FED4AE;}
+.wtp-member-top .wtp-member-point dl { width: 119px; margin: 13px 0;}
+.wtp-member-top .wtp-memeber-pointcart { float: left; width: 260px; padding: 18px 0; border-top: 0; border-left: solid 1px #FED4AE;}
+
+/*首页内容部分*/
+.wtp-main-box { margin-top: 20px;}
+.wtp-main-box .title { padding: 5px 5px 10px 5px; border-bottom: solid 1px #ccc;}
+.wtp-main-box .title h3 { font: 20px/32px "microsoft yahei"; color: #333; display: inline-block; *display: inline;}
+.wtp-main-box .title i { background: url(../images/point_bg.png) no-repeat; vertical-align: bottom; display: inline-block; *display: inline; width: 32px; height: 32px; margin-right: 8px; *zoom: 1;}
+.wtp-main-box .title i.voucher { background-position: -100px 0;}
+.wtp-main-box .title i.exchange { background-position: -100px -40px;}
+.wtp-main-box .title i.rpt { background-position: -100px -80px;}
+.wtp-main-box .title .more { float: right; padding: 10px 0 0;}
+.wtp-main-box .title a { color: #999;}
+.wtp-main-box ul { font-size: 0; *word-spacing:-1px/*IE6、7*/;}
+.wtp-main-box li { font-size: 12px; vertical-align: top; display: inline-block; *display: inline/*IE7*/; *zoom: 1;}
+
+/* 成长值介绍页面 */
+.wtp-grade-box { border: solid 1px #EEE; margin-top: -1px; background: #fff}
+.wtp-grade-box .title { background-color: #F9F9F9; padding: 9px; border-bottom: solid 1px #EEE;}
+.wtp-grade-box .title h3 { font: 16px/20px "Microsoft Yahei"; color: #333;}
+.wtp-grade-box dl { font-size: 0; *word-spacing:-1px/*IE6、7*/;}
+.wtp-grade-box dt, 
+.wtp-grade-box dd{ font-size: 12px; vertical-align: top; display: inline-block; *display: inline/*IE7*/; *zoom: 1;}
+.wtp-grade-box dt { font-size: 14px; text-align: center; width: 239px; padding: 30px;}
+.wtp-grade-box dt i { background: url(../images/point_bg.png) no-repeat; display: inline-block; width: 64px; height: 64px;}
+.wtp-grade-box dt i.icon-01 { background-position: -170px 0;}
+.wtp-grade-box dt i.icon-02 { background-position: -234px 0;}
+.wtp-grade-box dd { width: 790px; padding: 30px;}
+.wtp-grade-box dd li { line-height: 24px; background: url(../images/point_bg.png) no-repeat -398px 10px; padding-left: 10px;}
+/* 成长值获得明细 */
+.wtp-table-style { width: 100%; margin: 0 auto;}
+.wtp-table-style th,
+.wtp-table-style td { padding: 12px 0; text-align: center;}
+.wtp-table-style thead th { background-color: #F9F9F9; border-bottom: solid 1px #EEE;}
+.wtp-table-style tbody td { border-bottom: solid 1px #EEE;}
+
+/*店铺代金券列表*/
+.wtp-voucher-list {}
+.wtp-voucher-list li { width: 372px; margin: 20px 0 20px 20px;}
+.wtp-voucher { background-color: #FFFBF3; display: block; height: 212px; border: dotted 1px #FFCFBF; position: relative; z-index: 1;}
+.wtp-voucher .cut { background: url(../images/point_bg.png) no-repeat -140px 0; width: 20px; height: 18px; position: absolute; z-index: 2; top: -9px; left: 5px;}
+.wtp-voucher .info { background: url(../images/point_voucher_bg.png) repeat-y right 0; width: 120px; height: 192px; padding: 20px 30px 0 25px; position: absolute; z-index: 1; top: 0; left: 0;}
+.wtp-voucher .store { font-weight: 600; text-align: center; display: block; height: 20px; overflow: hidden;}
+.wtp-voucher .store-classify { text-align: center; height: 20px; margin-bottom: 5px;}
+.wtp-voucher .pic { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 120px; height: 120px; overflow: hidden;}
+.wtp-voucher .pic img { max-width: 120px; max-height: 120px; margin-top:expression(120-this.height/2); }
+.wtp-voucher .value,
+.wtp-voucher .point,
+.wtp-voucher .button { display: block; padding-left: 185px;}
+.wtp-voucher .value { padding-top: 5px; padding-bottom: 5px;}
+.wtp-voucher .value dt { font: 30px/48px "microsoft yahei"; color: #E4393C; height: 48px;}
+.wtp-voucher .value dt em { font-size: 40px;}
+.wtp-voucher .value dd { color: #D83500; white-space: nowrap; margin-bottom: 4px;}
+.wtp-voucher .value dd.time { color: #999;}
+.wtp-voucher .point { background-color: #FFF2DA; height: 44px; padding-top: 5px; padding-bottom: 5px;}
+.wtp-voucher .point p { line-height: 20px; display: block; color: #777; height: 20px;}
+.wtp-voucher .point p.required { font: 16px/24px "microsoft yahei"; color: #E4393C; height: 24px;}
+.wtp-voucher .button { padding-top: 10px;}
+/* 领取店铺代金券 */
+.wtp-voucher-exchange { padding: 40px 20px 80px 20px;}
+.wtp-voucher-exchange .pic { vertical-align: top; display: inline-block; width: 64px; height: 64px;}
+.wtp-voucher-exchange .pic span { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 64px; height: 64px; overflow: hidden;}
+.wtp-voucher-exchange .pic img { max-width: 64px; max-height: 64x; margin-top:expression(64-this.height/2); }
+.wtp-voucher-exchange dl { vertical-align: top; display: inline-block; margin-left:20px;}
+.wtp-voucher-exchange dt { font: 400 18px/25px "microsoft yahei"; color: #E4393C;}
+.wtp-voucher-exchange dt em { font-size: 16px;}
+.wtp-voucher-exchange dd { line-height: 24px; color: #999;}
+.wtp-voucher-exchange .button { margin-left: 80px; margin-top: 10px;}
+.wtp-voucher-exchange .submit { vertical-align: top; display: inline-block;}
+
+/*积分礼品列表*/
+.wtp-exchange-list { padding: 15px;}
+.wtp-exchange-list li { width: 200px; padding: 15px; background: #fff; }
+.wtp-exchange-list li:hover { box-shadow: 0 0 10px rgba(0,0,0,0.15);}
+.wtp-exchange-list li .gift-pic { display: block; }
+.wtp-exchange-list li .gift-pic a {line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 200px; height: 200px; overflow: hidden;}
+.wtp-exchange-list li .gift-pic img { max-width: 200px; max-height: 200px; margin-top:expression(200-this.height/2); }
+.wtp-exchange-list li .gift-name { line-height: 18px; display: block; width: 100%; height: 36px; margin: 10px 0; overflow: hidden;}
+.wtp-exchange-list li .exchange-rule { overflow: hidden;}
+.wtp-exchange-list li .exchange-rule .pgoods-price { line-height: 18px; color: #999; display: block; width: 150px; height: 18px; float: left; margin: 5px 0 0 10px;}
+.wtp-exchange-list li .exchange-rule .pgoods-price em { text-decoration: line-through;}
+.wtp-exchange-list li .exchange-rule .pgoods-points { font-size: 12px; color: #E4393C; display: block; width: 140px; float: left; margin: 5px 0 5px 10px; clear: left;}
+.wtp-exchange-list li .exchange-rule .pgoods-grade { font-family: Georgia,Arial; font-size: 18px; line-height: 53px; background-color: #E8E8E8; text-align: center; display: block; width: 40px; height: 53px; float: right; clear: left;}
+.norecord { font: 12px/20px "microsoft yahei"; color:#999; text-align:center; margin: 100px 0;}
+
+/*账户信息*/
+
+.wtp-member-account { font-size: 0; word-spacing:-1em/*IE6、7*/; vertical-align: top; display: inline-block;}
+.wtp-member-account dl {font-size: 12px; word-spacing: normal; letter-spacing: normal; vertical-align: top; display: inline-block; *display: inline/*IE7*/; padding: 0 10px; margin-left: 10px; *zoom: 1;}
+
+
+/* 优惠券分类选择 */
+.wtp-category { border-bottom: solid 2px #E4393C; overflow: hidden;}
+.wtp-category dl { font-size: 0; word-spacing:-1em; padding-bottom: 5px; margin-top: -1px; border-top: dotted 1px #CCC;}
+.wtp-category dt, 
+.wtp-category dd { font-size: 12px; word-spacing: normal; letter-spacing: normal; vertical-align: top; display: inline-block; *display: inline/*IE7*/; padding: 5px 0; *zoom: 1;}
+.wtp-category dt { font-weight: 600; text-align: right; width: 110px; padding: 10px 0;}
+.wtp-category .searchbox dt { line-height: 28px;}
+.wtp-category ul { font-size: 0; word-spacing:-1em;}
+.wtp-category li { font-size: 12px; word-spacing: normal; letter-spacing: normal; white-space: nowrap; vertical-align: middle; display: inline-block; *display: inline/*IE7*/; padding: 5px 10px; margin-left: 10px;*zoom: 1;}
+.wtp-category .searchbox li { cursor: pointer;}
+.wtp-category li.selected { color: #FFF; background-color: #E4393C;}
+.wtp-category li.selected em.asc { background: url(../images/point_bg.png) no-repeat 0 -100px; vertical-align: middle; display: inline-block; width: 8px; height: 8px; margin-left: 4px;}
+.wtp-category li.selected em.desc { background: url(../images/point_bg.png) no-repeat -8px -100px; vertical-align: middle; display: inline-block; width: 8px; height: 8px; margin-left: 4px;}
+
+.wtp-category li a.selected { font-weight: 600; color: #F32613; }
+/* 积分礼品信息兑换 */
+.wtp-detail { background: #fff; min-height: 400px; margin-bottom: 10px; border: solid 1px #EEE; position: relative; z-index: 2;}
+.wtp-detail .wtp-info { position: absolute; z-index: 2; top: 0; right: 0;}
+/**/
+.wtp-info { width: 210px;}
+.wtp-info .title { padding: 5px 10px; border-bottom: solid 1px #E6E6E6;}
+.wtp-info .title h4 { font: 600 14px/20px "Microsoft Yahei"; color: #555;}
+.wtp-info .content {}
+.wtp-info .content dl { font-size: 0; *word-spacing:-1px/*IE6、7*/; display: block; padding: 6px 0;}
+.wtp-info .content dl dt { font-size: 12px; color: #666; vertical-align: top; letter-spacing: normal; word-spacing: normal; text-align: right; display: inline-block; *display: inline/*IE7*/; width: 68px; *zoom:1;}
+.wtp-info .content dl dd { font-size: 12px; color: #333; vertical-align: top; letter-spacing: normal; word-spacing: normal; white-space: nowrap; text-overflow: ellipsis; display: inline-block; *display: inline/*IE7*/; width: 130px; *width: 125px; overflow: hidden; zoom: 1;}
+
+.wtp-exchangeNote { padding: 0 10px; overflow: hidden;}
+.wtp-exchangeNote li { padding: 10px 0; margin-top: -1px; border-top: dotted 1px #CCC; overflow: hidden;}
+.wtp-exchangeNote li .user-avatar { width: 36px; height: 36px; padding: 1px; margin-right: 5px; border: solid 1px #EEE; border-radius: 20px; float: left;}
+.wtp-exchangeNote li .user-avatar img { width: 36px; height: 36px; border-radius: 20px;}
+.wtp-exchangeNote li .user-name { float: left; width: 140px; height: 20px;}
+.wtp-exchangeNote li .user-log { color: #999; float: left; width: 140px; height: 20px;}
+
+/* 礼品图片*/
+.wtp-gift-picture { background-color: #FFF; width: 320px; height: 320px; padding: 20px; position: absolute; z-index:99; top: 0; left: 0;}
+.wtp-gift-picture a { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 320px; height: 320px; overflow: hidden;}
+.wtp-gift-picture a img { max-width: 320px; max-height: 320px; margin-top:expression(320-this.height/2); }
+/* 站外分享操作 */
+.wtp-share { width: 350px; height: 24px; padding-top: 10px; border-top: dotted 1px #EEE; position: absolute; z-index: 1; left: 10px; bottom: 10px;}
+.wtp-gift-summary {float: right; width: 622px; min-height: 400px; margin-right: 208px; border-right: solid 1px #EEE;  border-left: solid 1px #EEE;}
+.wtp-gift-summary .name { padding: 20px 25px;}
+.wtp-gift-summary .name h1, 
+.wtp-gift-summary .name strong { font: 600 18px/1.2em "Microsoft Yahei", Arial; color: #333; display: block;} 
+.wtp-gift-summary .name strong { font-weight: normal; font-size: 14px; color: #E4393C;}
+
+/* 销售信息 */
+.wtp-meta {background: #f5f5f5 url(../images/shop/goods_meta_bg.png) no-repeat 0 50%; background-size: cover; padding: 10px 0; position: relative; z-index: 1;}
+.wtp-key { border-top: dotted 1px #DDD; padding-top: 15px; }
+.wtp-meta dl, .wtp-key dl { font-size: 0; *word-spacing:-1px/*IE6、7*/;}
+.wtp-meta dl dt, .wtp-meta dl dd,
+.wtp-key dl dt, .wtp-key dl dd { font-size: 12px; line-height: 20px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/* IE6,7 */; min-height: 20px; padding: 4px 0; *zoom:1;}
+.wtp-meta dl dt, .wtp-key dl dt { font-family: simsun; text-align: right; width: 15%; margin-right: 1%;}
+.wtp-meta dl dd, .wtp-key dl dd { text-align: left; width: 84%; *width: 83%/*IE7*/;}
+.wtp-figure-input .text{vertical-align: middle; text-align: center}
+.wtp-meta dl dd i.ver-line { display: inline-block; *display: inline; zoom: 1;}
+.wtp-meta dl dd a { color: #005AA0; vertical-align: top; display: inline-block; *display: inline/*IE7*/; *zoom: 1;}
+.wtp-meta dl dd a:hover { text-decoration: underline;}
+.wtp-meta .points strong  { font-family:"Microsoft Yahei", Arial; font-size: 20px; font-weight:600; color: #E4393C;}
+.wtp-meta .points span { font: 600 12px/16px Georgia,Arial; color: #FFF; background-color: #F32613; padding: 2px 4px; border-radius: 2px;}
+.wtp-meta .points em { color: #999; vertical-align: middle; margin-left: 8px;}
+.wtp-meta .countdown i { font-family: Georgia,Arial; font-size: 16px; color: #F32613;}
+.wtp-meta .cost-price strong  { text-decoration: line-through;}
+.wtp-meta .sale-info { color: #E4393C}
+.wtp-meta .sale-info em { color: #690; vertical-align: middle; margint: 2px 0 12px 0;}
+.wtp-meta .sale-info span { color: #999; vertical-align: middle;}
+/*购买数量和库存*/
+.wtp-figure-input { position: relative; z-index: 1;}
+.wtp-figure-input span { margin-left: 10px; color:#999;}
+.wtp-figure-input span em { margin: 0 2px;}
+.wtp-figure-input span strong { color: #F60; margin: 0 2px;}
+
+/* 立即购买和加入购物车按钮 */
+.wtp-gift-summary .wts-btn { display: inline-block; margin: 10px 0 0 20px; position: relative; z-index: 70;}
+.wtp-gift-summary .wts-btn { *display: inline/*IE6,7*/; zoom: 1;}
+.wtp-gift-summary .wts-btn a.buynow,
+.wtp-gift-summary .wts-btn a.addcart,
+.wtp-gift-summary .wts-btn a.no-buynow,
+.wtp-gift-summary .wts-btn a.no-addcart { font: lighter 16px/20px "Microsoft Yahei"; color: #FFF; text-align: center; display: inline-block; height: 20px; padding: 6px 18px; margin-right: 10px; border-radius: 3px; position: relative; overflow: hidden; box-shadow: 0 0 0 2px rgba(204,204,204,0.25); cursor: pointer}
+.wtp-gift-summary .wts-btn a.buynow:hover,
+.wtp-gift-summary .wts-btn a.addcart:hover,
+.wtp-gift-summary .wts-btn a.no-buynow:hover,
+.wtp-gift-summary .wts-btn a.no-addcart:hover  { text-decoration: none;}
+.wtp-gift-summary .wts-btn a.buynow { background-color: #E4393C;}
+.wtp-gift-summary .wts-btn a:hover.buynow { background-color: #BB0000;}
+.wtp-gift-summary .wts-btn a.addcart { background-color: #E4393C;}
+.wtp-gift-summary .wts-btn a:hover.addcart { background-color: #BB0000;}
+.wtp-gift-summary .wts-btn a.no-buynow, 
+.wtp-gift-summary .wts-btn a.no-addcart,
+.wtp-gift-summary .wts-btn a:hover.no-buynow, 
+.wtp-gift-summary .wts-btn a:hover.no-addcart { background-color: #AAA; cursor: not-allowed;}
+.wtp-gift-summary .wts-btn a i { font-size: 17px; margin-right: 6px;}
+
+.wtp-grade {}
+.wtp-grade .title { background-color: #F9F9F9; padding: 9px; border-bottom: solid 1px #EEE;}
+.wtp-grade .title h3 { font: normal 16px/20px "Microsoft Yahei"; color: #333; }
+.wtp-gradeall-bar { font-size: 0; *word-spacing:-1px/*IE6、7*/; background: url(../images/point_grade.png) no-repeat 0 0; width: 660px; height: 18px; padding: 220px 200px 90px 40px;}
+.wtp-gradeall-bar .itemlevel { font-size: 12px; line-height: 20px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/* IE6,7 */;  *zoom:1; position: relative; z-index: 1;}
+.wtp-gradeall-bar .exp-lv0 { width: 15%;}
+.wtp-gradeall-bar .exp-lv1 { width: 35%;}
+.wtp-gradeall-bar .exp-lv2 { width: 35%;}
+.wtp-gradeall-bar .exp-lv3 { width: 15%;}
+.wtp-gradeall-bar .gradelabel { position: absolute; z-index: 1; top: -55px;}
+.wtp-gradeall-bar .gradelabel strong { font: 18px/20px "Times New Roman", Times, serif; color: #333; display: block;}
+.wtp-gradeall-bar .gradelabel i { font: 11px/18px Tahoma, Geneva, sans-serif; color: #555;  display: block;}
+.wtp-gradeall-bar .exp-lv0 .gradelabel { display: none;}
+.wtp-gradeall-bar .exp-lv1 .gradelabel { left: -90px;}
+.wtp-gradeall-bar .exp-lv2 .gradelabel { left: -120px;}
+.wtp-gradeall-bar .exp-lv3 .gradelabel { left: -90px;}
+.wtp-gradeall-bar .bar i { background-color:#F66; display: block; width: 14px; height: 14px; border: solid 2px #FFF; border-radius: 9px; position: absolute; z-index: 3; top: 0;}
+.wtp-gradeall-bar .exp-lv0 .bar i { left: 5px;}
+.wtp-gradeall-bar .exp-lv1 .bar i { left: -7px;}
+.wtp-gradeall-bar .exp-lv2 .bar i { left: -7px;}
+.wtp-gradeall-bar .exp-lv3 .bar i { left: -7px;}
+.wtp-gradeall-bar .arrow { font-size: 0; border-color: transparent transparent #FFF transparent; border-style: dashed dashed solid dashed; border-width: 8px; width: 0; height: 0; line-height: 0; position: absolute; z-index: 4; top: 20px; left: 5px;}
+.wtp-gradeall-bar .exp-lv0 .arrow { left: 5px;}
+.wtp-gradeall-bar .exp-lv1 .arrow { left: -7px;}
+.wtp-gradeall-bar .exp-lv2 .arrow { left: -7px;}
+.wtp-gradeall-bar .exp-lv3 .arrow { left: -7px;}
+.wtp-gradeall-bar .tips { background-color: #FFF; border-radius: 5px; padding: 0 10px; white-space: nowrap; position: absolute; z-index: 2; top: 36px; overflow: hidden;}
+.wtp-gradeall-bar .tips p { color: #777; padding: 5px; border-top: dotted 1px #CCC;  margin-top: -1px;}
+.wtp-gradeall-bar .tips strong { color: #F60;}
+.wtp-gradeall-bar .tips em { color: #333;}
+.wtp-gradeall-bar .exp-lv1 .tips  { left: -20px;}
+.wtp-gradeall-bar .exp-lv1 .tips  { left: -120px;}
+.wtp-gradeall-bar .exp-lv2 .tips  { left: -120px;}
+.wtp-gradeall-bar .exp-lv3 .tips  { left: -120px;}
+
+.wtp-sidebar { width: 210px; float: left;}
+.wtp-sidebar-container { margin-bottom: 10px;}
+.wtp-sidebar-container .title { background-color: #F7F7F7 ; height: 20px; padding: 5px 10px; border: solid #DDD; border-width: 1px 1px 0 1px;}
+.wtp-sidebar-container .title h4 { font: 600 14px/20px "Microsoft Yahei"; color: #666;}
+.wtp-sidebar-container .content { border: solid 1px #DDD; background:#FFF; }
+.wtp-sidebar .recommend { width: 190px; margin: 0 auto; overflow: hidden;}
+.wtp-sidebar .recommend li { padding: 10px 5px; margin: -1px 0 0 0; border-top: dotted 1px #DDD;}
+.wtp-sidebar .recommend .gift-pic { width: 160px; height: 160px; margin: 0 auto;}
+.wtp-sidebar .recommend .gift-pic a { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 160px; height: 160px; overflow: hidden;}
+.wtp-sidebar .recommend .gift-pic a img { max-width: 160px; max-height: 160px; margin-top:expression(160-this.height/2); }
+.wtp-sidebar .recommend .gift-name { line-height: 16px; height: 32px; margin: 5px 0; overflow: hidden;}
+.wtp-sidebar .recommend .pgoods-points { font: 600 14px/20px Tahoma, Geneva, sans-serif; color: #F32613; margin-right: 6px;}
+.wtp-sidebar .recommend .pgoods-points span { font: 600 12px/16px Georgia,Arial; color: #FFF; background-color: #F32613; padding: 2px 4px; border-radius: 2px; }
+.wtp-goods-main { float: right; width: 980px; }
+.wtp-goods-box { width: 100%; margin-bottom: 10px; position: relative; z-index: 1; overflow: hidden;}
+/* 商品内容处TabBar */
+.tabbar { background: #FFF;}
+.wtp-goods-title-nav { margin-top: 7px;}
+.wtp-goods-title-nav ul { font-size: 0; *word-spacing:-1px/*IE6、7*/; background-color: #FCFCFC; border-bottom: solid #D7D7D7 1px;}
+.wtp-goods-title-nav ul li { vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block;}
+.wtp-goods-title-nav ul li { *display: inline/*IE6,7*/;}
+.wtp-goods-title-nav ul li a { font: normal 14px/20px "Microsoft Yahei"; text-decoration:none; color:#777; background-color: #F5F5F5; display: block; padding: 6px 15px 5px 15px; border-style: solid; border-color: #D7D7D7; border-width: 0 1px 0 0;}
+.wtp-goods-title-nav ul li.current { margin: -7px 0 -1px -1px;}
+.wtp-goods-title-nav ul li.current a { color: #333; background-color: #FFF; padding: 11px 15px 6px 15px; border-style: solid; border-color: #E4393C #DDD transparent #DDD; border-width: 2px 1px 0 1px ;}
+.wtp-goods-content-content {background: #fff; padding: 10px 0; border: 0 none; margin: 0; overflow: hidden;}

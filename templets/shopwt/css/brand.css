@@ -1,0 +1,126 @@
+/** 
+ * 描述：品牌频道
+* by s hop wt.co  m
+ */
+@charset "utf-8";
+.body { padding-top: 125px; min-height:840px; }
+.m-header { margin: 0 auto; width: 1200px; height: 40px; line-height:40px; text-align: center; }
+.m-header h3 { color:#fff; font-size: 20px; font-weight: normal; }
+.m-recomHeader { }
+.m-streetHeader { margin-top:13px; margin-bottom:16px; }
+.m-bsnav { margin: 0 auto 10px; width: 1200px; min-height: 82px; text-align: center; font-size: 14px; color:#333; }
+.m-bsnav .tab, .m-bsnav .tab:hover, .m-bsnav .sp, .m-bsnav .sp:hover { display: inline-block; float: left; height: 42px; line-height: 42px; color:#bbb; font-size:14px; text-decoration: none; text-align: center; }
+.m-bsnav .tab { width: 131px; }
+.m-bsnav .sp { width:5px; }
+.m-bsnav .tab:hover, .m-bsnav .act { font-weight:bold; color:#fff; line-height: 40px; }
+.m-bsnav .tab:hover span, .m-bsnav .act span { border-bottom: 2px solid #d22147; }
+.m-bsnav .tab span { padding: 0 11px 3px; }
+.m-bsfixednav { position: fixed; top:0; width: 100%; background-color: #fff; z-index: 999; box-shadow:0 0 10px rgba(0,0,0,.3); -moz-box-shadow:0 0 10px rgba(0,0,0,.3); -webkit-box-shadow:0 0 10px rgba(0,0,0,.3); }
+.m-bsfixednav .m-bsnav { margin-bottom: 0; background-color: #fff }
+.m-bsfixednav .m-bsnav .tab { color:#333; }
+.m-bsfixednav .m-bsnav .tab:hover, .m-bsfixednav .m-bsnav .act { font-weight:bold; color:#d22147; }
+.m-bsfixednav .m-bsnav .cart { margin-left: 5px; width: 120px; line-height: 37px; background-color: #eee; }
+.m-bsfixednav .m-bsnav .cart:hover { font-weight:normal; color:#333; background-color: #ddd; }
+.m-bsfixednav .m-bsnav .cart b { margin-right: 4px; font-size: 20px; color: #333; }
+.m-bsfixednav .m-bsnav .cart .num { margin-left: 4px; padding:2px 6px; color:#fff; background-color: #d22147; border-radius: 99px; -moz-border-radius: 99px; -webkit-border-radius: 99px }
+.m-recomBrand { margin:80px auto 0; padding:10px 0 20px; width:1090px; height:310px; }
+.m-recomBrand .rowOfFour .brandWrap .brandDesc {  }
+.m-recomBrand .rowOfFour .brandWrap .brandDesc .brandLogo { border:none; }
+.m-recomBrand .rowOfFour .brandWrap .brandDesc .brandBenefit { color:#999; }
+.m-recomBrand .rowOfFour .brandWrap .brandDesc .brandName { color:#fff; font-weight: normal; font-size: 14px; }
+.m-brandStreet .column { float:left; margin-right: 14px; width:262px; }
+.m-brandStreet .column .img { margin-bottom:14px; width:100%; }
+.m-brandStreet .rowOfFour .brandWrap .brandDesc { background-color: #24212A; }
+.m-brandStreet .rowOfFour .brandWrap .brandDesc .brandLogo { top:-46px; margin-left:-46px; border:1px solid #eaeaea; }
+.m-brandStreet .rowOfFour .brandWrap .brandDesc .brandBenefit { color:#666; }
+.m-brandStreet .rowOfFour .brandWrap .brandDesc .brandName { color:#fff; }
+.m-brandStreet .rowOfFour .brandWrap .brandDesc .brandBtn { background-color: #d22147; }
+.loading { margin-top:50px; text-align: center; }
+.loading img { border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; }
+.noMore { margin-top:50px; }
+.noMore p { margin:0 auto; width: 166px; height: 43px; line-height: 43px; border-top:1px solid #464156; border-bottom:1px solid #464156; color:#fff; text-align: center; font-size: 18px; }
+.m-brandarea { }
+.brandWrap .logoPic { border-radius:110px; -moz-border-radius:110px; -webkit-border-radius:110px; }
+.brandWrap .brandDesc .brandBenefit, .brandWrap .brandDesc .brandName { padding:0 8px; overflow: hidden; white-space: nowrap; -o-text-overflow:ellipsis; text-overflow:ellipsis; }
+.rowOfFour { margin-right: -14px; }
+.rowOfFour .brandWrap1 { position:relative; float:left; width:262px; height:214px; overflow:hidden; font-size: 14px; }
+.rowOfFour .brandWrap { position:relative; float:left; margin:0 14px 14px 0; width:262px; height:auto; font-size: 14px; }
+.rowOfFour .brandWrap .brandImgLink { display: block; overflow: hidden; }
+.rowOfFour .brandWrap .brandImg { width:262px; height:262px; }
+.rowOfFour .brandWrap .brandDesc { display:block; position:relative; top:0; width:262px; height:162px; text-decoration:none; color:#333; }
+.rowOfFour .brandWrap .brandDesc .brandLogo { position:absolute; top:-45px; left:50%; margin-left:-45px; width:90px; height:30px; background:#fff; padding:30px 0; -moz-border-radius:50%; -webkit-border-radius:50%; border-radius:50%; }
+.rowOfFour .brandWrap .brandDesc .brandName { margin-top:52px; margin-bottom:2px; text-align: center; font-weight: bold; overflow: hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis; white-space:nowrap; }
+.rowOfFour .brandWrap .brandDesc .brandBenefit { font-size:13px; overflow:hidden; text-align:center; color:#d22147; overflow: hidden; text-overflow:ellipsis; -o-text-overflow:ellipsis; white-space:nowrap; }
+.rowOfFour .brandWrap .brandDesc .brandBtn { display:block; margin:10px auto 0; width:124px; height:28px; line-height:28px; text-align:center; text-decoration:none; cursor:pointer; -moz-border-radius:14px; -webkit-border-radius:14px; border-radius:14px; background-color: #d22147; color:#fff; }
+.rowOfFour .brandWrap .brandDesc .brandTime { margin-top:15px; text-align: center; font-size: 12px; }
+.f-fl, .fl { float: left; }
+.wth-barnd-list { margin-top: 20px; }
+.wth-barnd-list ul { font-size: 0; word-spacing:-1em; width: 1180px; margin: 0 auto; }
+.wth-barnd-list ul li { vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/;
+width: 195px; padding: 0; margin: 0 0 20px 0; overflow: hidden; *zoom: 1;
+}
+.wth-barnd-list dl { background-color: #FFF;width: 150px; padding: 4px 9px; border: solid 1px #E6E6E6; margin: 0 auto; border-radius: 6px; box-shadow: inset 0 0 2px rgba(204,204,204,0.3); }
+.wth-barnd-list dt a { line-height: 0; background-color: #FFF; text-align: center; vertical-align: middle; display: table-cell; *display: block;
+width: 150px; height: 50px; overflow: hidden; }
+.wth-barnd-list dt a img {  max-width: 150px; max-height: 50px; margin-top:expression(50-this.height/2);
+*margin-top:expression(25-this.height/2)/*IE6,7*/;
+}
+.wth-barnd-list ul li a:hover {animation: 0.5s ease 0s normal forwards 1 running toTopFromBottom;}
+.wth-barnd-list dl dd { font-size: 12px; text-align: center; text-overflow: ellipsis; white-space: nowrap; height: 20px; padding: 4px 0 0 0; border-top: solid 1px #E6E6E6; overflow: hidden; }
+.wth-brand-class { margin-top: 20px;padding-bottom:20px;}
+.wth-brand-class-tab { color: #333; font-size: 14px; margin: 0 auto 10px; text-align: center; width: 1200px; }
+.wth-brand-class-tab .tabs-nav { font-size: 0; word-spacing:-1em; }
+.wth-brand-class-tab .tabs-nav li { vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/;
+padding: 0; margin: 0 14px; overflow: hidden; *zoom: 1;
+}
+.wth-brand-class-tab .tabs-nav li a { font-size:16px;padding-bottom:4px; text-align: center; text-overflow: ellipsis; white-space: nowrap; color:#bbb }
+.wth-brand-class-tab .tabs-nav li a em { font-size: 11px; margin-left: 4px; -webkit-text-size-adjust:none; }
+.wth-brand-class-tab .tabs-nav li a:hover { text-decoration: none; color:fff; border-bottom: 2px solid #d22147; }
+.wth-brand-class-tab .tabs-nav li.tabs-selected a { color:#fff; padding-bottom:4px;  border-bottom: 2px solid #d22147; cursor: default; }
+.wth-brand-class-tab .tabs-nav .line { color: #bbb; display: inline-block; font-size: 14px; height: 42px; line-height: 42px; text-align: center; margin-left:15px; text-decoration: none; }
+.wth-brand-class-tab .tabs-nav .line { width: 5px; }
+.wth-brand-class .wth-barnd-list { display: block; padding-top: 20px; }
+.wth-brand-class .tabs-hide { display: none; }
+.wth-barnd-list-text { font-size: 0; word-spacing:-1em; width: 1150px; margin: 0 auto; }
+.wth-barnd-list-text strong, .wth-barnd-list-text a { color: #bbb; font-size: 14px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/;
+padding: 0; margin: 0 20px 15px 0; overflow: hidden; *zoom: 1;
+}
+.wth-barnd-list-text strong { margin-left: 10px; }
+
+/*品牌介绍*/
+.squares .list_pic { width: 1210px;}
+.squares .list_pic li { width: 230px;}
+
+.brand-info{ position:relative; height:360px; margin-bottom: 20px; overflow:hidden}
+.brand-info .hd{ height:15px; overflow:hidden; position:absolute; right:50%; bottom:5px; z-index:1; }
+.brand-info .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.brand-info .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; border-radius:10px; }
+.brand-info .hd ul li.on{ background:#7d256e; color:#7d256e; }
+.cent_main_t{ width:auto; max-height:360px; }
+.brand-info .bd .pos_r{ position:relative}
+.brand-info .bd .pos_r .infor{ width:332px; height:276px; padding:4px; position:absolute; top:40px; right:0px; transition: all .25s linear;
+} 
+.brand-info .bd .pos_r .infor_bg { width:335px; height:276px; padding:4px; background:#fff; opacity: 0.8;  -moz-opacity:0.6; filter:alpha(opacity=60);  position:absolute;top:-5px; right:-5px;  z-indext1; ransition: all .25s linear;
+} 
+.brand-info .bd .pos_r .infor:hover{ right:80px;} 
+.brand-info .bd .pos_r .infor .in_div {position:absolute;top:0px; right:0px; z-index: 2; width:280px; height:240px; border:2px solid #eee; background:#FFF; padding:10px 25px 20px 25px;}
+.brand-info .bd .pos_r .infor .in_div .top{ width:150px; height:71px; line-height: 71px; border-bottom:1px solid #ccc; padding:0 67px 5px 67px;}
+.brand-info .bd .pos_r .infor .in_div .top img{ width:150px; height:auto; margin:auto;}
+.brand-info .bd .pos_r .infor .in_div .tit_p{ font-size:24px; text-align:center; line-height:40px;}
+.brand-info .bd .pos_r .infor .in_div .cen_d{ line-height: 25px; position: absolute; left: 30px; width: 278px; z-index: 66; background: #FFF;overflow: hidden; padding: 0 5px 0 5px; overflow:auto;}
+
+.x_jt{position:absolute;right:48%; bottom:57px; z-index:67;position:absolute; z-index:67; width:17px; height:17px; background:url(../images/x_h.png) no-repeat;}
+.s_jt{position:absolute; right:48%; bottom:15px; z-index:67; width:17px; height:17px; background: url(../images/s_h.png) no-repeat;}
+.more{overflow:hidden !important; background:#FFF; height:71px;}
+.h_124{ height:127px;}
+.heigt_75{ height:75px; background:#FFF;}
+.brand-info .bd .pos_r .infor .in_div .bott_d  { width: 280px; margin-top:90px; *margin-top:0; _margin-top:0}
+.brand-info .bd .pos_r .infor .in_div .bott_d .flag_ss{ width:45px; height:31px; float:left;}
+.brand-info .bd .pos_r .infor .in_div .bott_d .flag_ss img{ width:30.5px; height:21px;padding:12px 0 0 0; }
+.brand-info .bd .pos_r .infor .in_div .bott_d .guojia{ _width:108px; float:left; padding:14px 0 0 5px; font-size:18px; color:#666; font-weight:700;}
+.brand-info .bd .pos_r .infor .in_div .bott_d .guanzhu{ width:75px; float:right; line-height:18px;} 
+.brand-info .bd .pos_r .infor .in_div .bott_d .guanzhu .top_p{ text-align:center; color:#ef195f}
+.brand-info .bd .pos_r .infor .in_div .bott_d .guanzhu .bot_p{ padding:0 0 0 15px; background:url(../images/xin.png) no-repeat left center;}
+
+
+

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>商品分类</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/categroy.css">
+</head>
+<body>
+<header id="header">
+  <div class="header-box">
+    <div class="header-l"> <a href="javascript:history.go(-1)"> <i class="back"></i> </a> </div>
+    <div class="header-inp"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键字</span> </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="wtm-nav-box">
+    <div class="wtm-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="wtm-main-box">
+  <div class="categroy-cnt" id="categroy-cnt"></div>
+  <div class="categroy-rgt" id="categroy-rgt"></div>
+</div>
+<div class="pre-loading">
+  <div class="pre-block">
+    <div class="spinner"><i></i></div>
+    分类数据读取中... </div>
+</div>
+</body>
+<script type="text/html" id="category-one">
+	<ul class="categroy-list">
+		<li class="category-item selected">
+			<a href="javascript:void(0);" class="category-item-a brand">
+				<div class="ci-fcategory-name">品牌推荐</div>
+			</a>
+		</li>
+		<% for(var i = 0;i<list.length;i++){ if(list[i].is_show==1){ continue;} %>
+			<li class="category-item">
+				<a href="javascript:void(0);" class="category-item-a category" date-id="<%= list[i].gc_id %>">
+					<div class="ci-fcategory-name"><%= list[i].gc_name %></div>
+				</a>
+			</li>
+		<% } %>
+	</ul>
+</script>
+<script type="text/html" id="category-two">
+	<dl class="categroy-child-list">
+		<% var c=0; for(var i=0; i<gc_list.length; i++) { if(gc_list[i].is_show==1){ continue;} var col = c % 10;c++; %>
+			<dt><a href="<%= WapSiteUrl %>/html/product_list.html?gc_id=<%= gc_list[i].gc_id %>"><i class="col<%= col %>"></i><%= gc_list[i].gc_name %></a></dt>
+			<% if(gc_list[i].child!=null){for(var j=0; j<gc_list[i].child.length; j++) { if(gc_list[i].child[j].is_show==1){ continue;} %>
+				<dd><a href="<%= WapSiteUrl %>/html/product_list.html?gc_id=<%= gc_list[i].child[j].gc_id %>"><%= gc_list[i].child[j].gc_name %></a></dd>
+			<% }} %>
+		<% } %>
+	</dl>
+</script>
+<script type="text/html" id="brand-one">
+	<dl class="brands-recommend">
+		<% for(var i = 0;i<brand_list.length;i++){ %>
+			<dd>
+				<a href="<%= WapSiteUrl %>/html/product_list.html?b_id=<%= brand_list[i].brand_id %>">
+					<img src="<%= brand_list[i].brand_pic %>">
+					<p><%= brand_list[i].brand_name %></p>
+				</a>
+			</dd>
+		<% } %>
+	</dl>
+</script>
+<div id="footnav" class="footnav clearfix">
+<ul>
+<li><a href="../index.html"><i class="home"></i><p>首页</p></a></li>
+<li><a href="product_first_categroy.html" class="current"><i class="categroy2"></i><p>分类</p></a></li>
+<li><a href="search.html"><i class="search"></i><p>搜索</p></a></li>
+<li><a href="cart_list.html"><span id="cart_count"><i class="cart"></i></span><p>购物车</p></a></li>
+<li><a href="member/member.html"><i class="member"></i><p>我</p></a></li>
+</ul>
+</div>
+<script> var navigate_id ="1";</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/iscroll.js"></script>
+<script type="text/javascript" src="../js/html/categroy-frist-list.js"></script>
+</html>

@@ -1,0 +1,59 @@
+将im.zip上传到/www/wwwroot/im目录下，解压命令：unzip im.zip
+
+然后打开/www/wwwroot/im/config.js 文件，把数据库链接信息更换为你的商城数据库信息，配置示例如下：
+/**
+ * ShopWT IM by shopwt.com
+ */
+var config = {};//数据库帐号设置
+
+config['host']  	= 'localhost';//数据库地址
+config['port']  	= '3306';//数据库端口
+config['user']  	= 'root';//数据库用户名
+config['password']  	= 'root';//数据库密码
+config['database']  	= 'shopwt';//mysql数据库名
+config['tablepre']  	= 'shopwt_';//表前缀
+config['insecureAuth']  	= true;//兼容低版本
+config['debug']  	= false;//默认false
+
+exports.hostname = 'demo.shopwt.com';//把网址修改为你安装商城的域名，不要带http://及/
+exports.port = 33;//服务器所用端口号,默认33
+exports.config = config;
+保存上传
+
+开放 防火墙33端口(如果使用阿里云，请到安全组里，添加规则 开放端口33即可，还有使用宝塔用户，请跳到这一步，，请拉到最后面，进行另行教程)
+1、编辑iptables文件，命令如下：
+vi /etc/sysconfig/iptables
+添加如下一行，可以参照已有的已经开启的ssh的22端口
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 33 -j ACCEPT
+（修改33为其他端口，即可开启其他端口，如80，21等）
+2、重启防火墙，命令如下：
+service iptables restart
+
+安装node及后台启用IM，命令如下(如果使用宝塔面板，以下步骤跑过，请拉到最后面，进行另行教程)：
+wget https://nodejs.org/dist/v0.12.0/node-v0.12.0-linux-x64.tar.gz
+tar xvf node-v0.12.0-linux-x64.tar.gz
+mv node-v0.12.0-linux-x64 /usr/local/node
+ln -s /usr/local/node/bin/node /usr/local/bin/node
+ln -s /usr/local/node/bin/npm /usr/local/bin/npm
+npm install -g pm2
+pm2 start /www/wwwroot/im/chat.js
+pm2 save
+pm2 startup
+chmod +x /etc/init.d/pm2-init.sh
+chkconfig --add pm2-init.sh
+mv /etc/init.d/pm2-init.sh /var/lock/subsys/pm2-init.sh
+完成IM安装，使用会员账号登录到商城，点击右侧快捷工具条中的聊天按钮，如果向左弹出联系人对话框，说明 IM 配置成功了
+
+其它命令：
+如果重启服务器后，IM没用启用，可执行命令
+pm2 resurrect
+就能启动之前的项目了。
+
+
+
+----------------------------------------------------------------
+宝塔面板添加33端口教程：
+登录面板-安全-端口控制：放行端口，填写：33，备份/说明填写：IM客服
+-----------------------------------------------------------------
+宝塔面板启用IM客服教程：
+登录面板-软件管理-安装【PM2管理器 ...】成功后，设置-项目列表-项目所在根目录 选择/www/wwwroot/im，启用文件填写：chat.js项目名称填写：im，添加 即可完成操作。

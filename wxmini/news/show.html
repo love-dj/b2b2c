@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>资讯详情</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/news.css">
+<link rel="stylesheet" type="text/css" href="../css/font.css">
+<link rel="stylesheet" type="text/css" href="../css/member.css">
+<style type="text/css">.header-inp {margin: 0.275rem 4rem 0 2rem;}</style>
+</head>
+<body>
+<header id="header" class="fixed">
+	<div class="header-box">
+		<div class="header-l">
+			<a href="index.html">
+				<i class="back"></i>
+			</a>
+		</div>
+		<div class="header-inp">
+			<i class="icon"></i>
+			<input type="text" autofocus="" autocomplete="on" maxlength="50" placeholder="请输入搜索关键字" id="news-keyword" oninput="writeClear($(this));" value="" class="search-input" data-type="keyword" /><span class="input-del"></span>
+		</div>
+		<div class="header-r">
+			<a id="search-news" href="javascript:void(0);" class="search-btn">搜索</a>
+			<a href="javascript:void(0);" id="header-nav"><i class="more"></i><sup></sup></a>
+		</div>
+	</div>
+  	<div class="wtm-nav-box">
+    <div class="wtm-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../html/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../html/product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../html/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../html/member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="wtm-main-box">
+<div class="detail-wraper wrapper" style="padding-bottom: 80px; transform: translate3d(0px, 0px, 0px);">
+		<div class="main-wrap">
+		  		<div class="news-detail">
+				<div class="news-content">
+					<div class="newsinfo"> </div>
+				<div class="com-area" id="PLmao">
+				<h3 class="comment-title">热门评论</h3>
+				<div class="com-list" id="comment_list_all">
+				</div>
+				</div>
+		  		  </div>
+				</div>
+</div></div>
+<div class="bottom-comment cur" id="comment-area" style="position: fixed;">
+<textarea placeholder="在此输入评论" id="content" class=""></textarea>
+<div class="pl-zan bdsharebuttonbox" style="display: block;">
+<span class="pl"><i style="color: #9e9e9e;" class="iconfont icon-pinglun"></i><em>0</em></span><span class="zan" onclick="zan(this)"><i class="iconfont icon-icon"></i><em>0</em></span><span class="share"><a href="javascript:;" class="bds_more" data-cmd="more" style="display: block; width: 100%; height: 100%; background: none;"></a></span>
+</div>
+<div class="btn-group" style="display: none;">
+<a href="javascript:;" class="add-comment" onclick="publishComment(this);">评论</a><a href="javascript:;" class="cancel">取消</a>
+</div>
+</div>
+</div>	
+</body>
+</html>	
+<script type="text/html" id="article">
+	
+<div class="news-title">
+<h3 title="<%= article_title %>"><%= article_title %></h3>
+<div class="btn-grp">
+<span class="left" style="margin-right: 5px;"><%= article_time %></span><span class="left"><%= article_publisher_name %></span>
+<span ><i class="iconfont icon-liulanliang"></i><%= article_click %></span>
+</div>
+</div>
+<div class="word">
+</div>
+
+</script>
+<script type="text/html" id="comment_list">
+	<% var comment_list = datas.comment_list; %> 
+	<% if(comment_list.length >0){%>
+			<%for(i=0;i<comment_list.length;i++){%>
+                                <div class="item">
+                                    <dl>
+                                        <dt>
+                                            <img src="<%=comment_list[i].member_avatar %>" /></dt>
+                                        <dd>
+                                            <p class="name">
+                                                <%=comment_list[i].member_name %>
+                                               <i data-id="<%=comment_list[i].comment_id %>" onclick="_itemz(<%=comment_list[i].comment_id %>,this)" style="float: right; color: #666; padding: 2px 0 0 2px;" class="iconfont icon-icon item-zan"><em style="margin-left: 5px;" id="zanc_<%=comment_list[i].comment_id %>"><%=comment_list[i].comment_up %></em></i>
+                                            </p>
+                                            <p><em><%=comment_list[i].time %></em></p>
+                                            <p><%=comment_list[i].comment_message %></p>
+                                        </dd>
+
+                                    </dl>
+                                </div>
+                                <% } %>
+                               <% if (hasmore) {%>
+			<li class="loading"><div class="spinner"><i></i></div>评论加载中...</li>
+			<% } %>
+	<%  }else {	%>
+<div class="item">
+<p style="text-align: left; padding: 10px 0;">暂无评论，您可以做第一个评论者哦！</p>
+</div>
+	<%  } %>
+                            </script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/news/mfun.js"></script>
+<script type="text/javascript" src="../js/news/news_show.js"></script>
+
+<script>
+function strFilter1(suc) {
+	var re = /\b(and|or|exec|execute|insert|select|delete|update|alter|create|drop|count|\*|chr|char|asc|mid|substring|master|truncate|declare|xp_cmdshell|restore|backup|net +user|net +localgroup +administrators)\b/;
+	return suc.replace(re, '').replace(/</gi, "＜").replace(/>/gi, "＞");
+}
+var userid = "";
+var nid = getQueryString('article_id'),
+	clientHeight = 0,
+	isShow = true;
+$(".bottom-comment .pl-zan span.pl").on("click", function() {
+	$(".bottom-comment textarea").trigger("focus");
+});
+$(".bottom-comment .cancel").on("click", function() {
+	$(this).parent().hide().parent().find("textarea").val("").removeClass("curFocus").next(".pl-zan").show();
+	var main = $(".detail-wraper");
+	main.css({
+		"padding-bottom": "80px",
+		"transform": "translate3d(0,0,0)"
+	});
+	$("#comment-area").css("position", "fixed");
+});
+$(".bottom-comment textarea").on("focus", function() {
+	var _this = $(this);
+	if (_this.hasClass("curFocus")) {
+		return;
+	}
+	$(".bottom-comment .pl-zan").hide(200);
+	$(this).addClass("curFocus");
+	$(".bottom-comment .btn-group").show(300);
+	setTimeout(function() {
+		var top = $(document).height();
+		clientHeight = window.screen.height - $(window).height();
+		var main = $(".detail-wraper");
+		main.css({
+			"padding-bottom": "160px",
+			"transform": "translate3d(0,-" + clientHeight + "px,0)"
+		});
+		setTimeout(function() {
+			_this.val(" ");
+		}, 50);
+	}, 500);
+});
+
+$(document).on("focus", ".replay-area textarea", function() {
+	isShow = false;
+	$("#comment-area").hide();
+	var _this = $(this);
+	_this.val("").css({
+		"color": "#999"
+	});
+	setTimeout(function() {
+		var clientHeight = window.screen.height - $(window).height();
+		var oldScroll = $(window).scrollTop();
+		$(window).scrollTop(oldScroll + clientHeight + _this.height());
+	}, 50);
+});
+$(document).on("blur", ".replay-area textarea", function() {
+	$("#comment-area").show();
+});
+$(window).on("scroll", function() {
+	if (!isShow) {
+		return;
+	}
+	var h = $(this).scrollTop();
+	var top = $("#PLmao").offset().top;
+	if (top - h < $(document).height() / 2) {
+		$(".bottom-comment").addClass("cur");
+	} else {
+		$(".bottom-comment .cancel").trigger("click");
+		$(".bottom-comment textarea").trigger("blur");
+	}
+});
+$(document).on("click", "a.cancel-btn", function() {
+	var _this = $(this);
+	if (_this.parents(".replay-area").find("textarea").val().length > 0) {
+		_this.parents(".replay-area").find("textarea").val("");
+	}
+	_this.parents(".replay-area").slideUp();
+});
+
+
+
+var conFlg = false;
+
+function publishComment(obj) {
+	var the = $(obj);
+	var content = strFilter1($.trim($("#content").val()));
+	var comment_object_id = getQueryString('article_id');
+	var key = getCookie('key');
+	var type = 'article';
+	 if (key === null) {
+        window.location.href = WapSiteUrl + '/html/member/login.html';
+        return;
+    }
+	if (content == "" || content == null) {
+		layer.open({
+			content: '评论内容不能为空，请填写评论！',
+			shadeClose: false,
+			btn: ['确定']
+		});
+		$('#content').focus();
+		$('#content').val("");
+	} else {
+		if (!conFlg) {
+			conFlg = true;
+			 $.ajax({
+            url:ApiUrl+"/index.php?w=news_article&t=comment_save",
+            type:"post",
+            dataType:"json",
+            data:{key:key, comment_object_id:comment_object_id,comment_message: content,comment_type:type},
+            success:function (res){
+				conFlg = false;
+				if (res.datas.status == 1) {
+					layer.open({
+						content: res.datas.message,
+						shadeClose: false,
+						btn: ['确定'],
+						end: function(){
+							window.location.reload()
+						}
+					});
+				} else{
+					layer.open({
+						content: res.datas.message,
+						shadeClose: false,
+						btn: ['好的']
+					});
+				}
+			}
+		});
+	}
+}
+	}
+</script>
+
+

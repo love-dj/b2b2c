@@ -1,0 +1,7 @@
+/** 
+ * 描述：默认店铺主题
+ * b y sh opw t. com
+ */
+@charset "utf-8";
+.wts-default-banner { background: url(images/header.jpg) no-repeat center center; display: block; width: 100%; height: 140px;}
+.wts-nav li.active a span, #nav li.active a:hover span { text-shadow: 0 1px 1px rgba(0,0,0,.2)}

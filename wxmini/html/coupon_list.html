@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>免费领取平台优惠券</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/coupon.css">
+</head>
+<body>
+<header id="header" class="fixed">
+    <div class="header-box">
+        <div class="header-l"><a href="javascript:history.go(-1)"><i class="back"></i></a></div>
+        <div class="header-title">
+        <span class="header-tab"> <a href="javascript:void(0);" class="cur cur-blue">平台优惠券</a> <a href="voucher_list.html">店铺代金券</a> </span>
+        </div><div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+    </div>
+    <div class="wtm-nav-box">
+        <div class="wtm-nav-menu"> <span class="arrow"></span>
+            <ul>
+                <li><a href="../index.html"><i class="home"></i>首页</a></li>
+                <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="wtm-main-box fixed-Width">
+  <div class="wtm-tickets-list">
+    <ul class="wtm-tickets" id="rplist">
+    </ul>
+      <ul class="wtm-tickets" id="vhlist">
+      </ul>
+  </div>
+</div>
+<div class="fix-block-r"> <a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a> </div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="list_model">
+    <% if(coupon_list.length >0){%>
+        <% for (var k in coupon_list) { var v = coupon_list[k]; %>
+        <li class="ticket-item normal">
+            <a class="get-coupon" id="get_coupon-<%=v.coupon_t_id;%>" onclick="getCoupon('<%=isLogin;%>', '<%=v.coupon_t_id;%>', '<%=v.coupon_t_wap_url;%>')">
+            <div class="border-left"></div>
+            <div class="block-center">
+                <div class="store-info">
+                    <div class="store-avatar"><img src="<%=v.coupon_t_customimg_url;%>" /></div>
+                    <dl>
+                        <dt class="store-name" title="<%=v.voucher_t_title;%>"><%=v.coupon_t_title;%></dt>
+                        <dd><span class="big-price">¥<%=v.coupon_t_price;%></span></dd>
+						<dd><%=v.end_date;%></dd>
+                    </dl>
+                </div>
+                <div class="ticket-info" id="ticket-info-<%=v.coupon_t_id;%>">
+                    <div class="progress-bar"><span style="width:<%=v.coupon_t_progress;%>%"></span></div>
+                    <div class="progress-text">已抢&nbsp;<%=v.coupon_t_progress;%>%</div>
+                    <% if(v.coupon_m_state == 3){%>
+                    <div class="coupon-btn coupon-btn-yellow">去使用</div>
+                    <%} else if(v.coupon_m_state == 4){%>
+                    <div class="coupon-btn coupon-btn-yellow">已使用</div>
+                    <%
+                    } else {
+                    %>
+                    <div class="coupon-btn">立即领取</div>
+                    <% } %>
+
+                </div>
+            </div>
+            <div class="border-right"></div>
+        </a>
+    </li>
+    <%}%>
+    <li class="loading"><div class="spinner"><i></i></div>数据读取中</li>
+    <%
+    } else {
+    %>
+    <div class="wtm-norecord coupon">
+        <div class="norecord-ico"><i></i></div>
+        <dl>
+            <dt>平台无相关的优惠券</dt>
+        </dl>
+    </div>
+    <% } %>
+</script>
+
+
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/wtscroll-load.js"></script>
+<script type="text/javascript" src="../js/simple-plugin.js"></script>
+<script>
+    function getCoupon(state, coupon_id, coupon_t_wap_url) {
+        if(state == 1) {
+            window.location.href = WapSiteUrl + '/html/member/login.html';
+        } else if(state == 2) {
+
+            var key = getCookie('key');
+                $.ajax({
+                    url: ApiUrl + "/index.php?w=member_coupon&t=getcoupon&tid=" + coupon_id,
+                    type: 'get',
+                    data:{key:key},
+                    dataType: 'json',
+                    success: function(result) {
+                        if(result.code == 400) {
+                            $.sDialog({
+                                skin:"opacity",
+                                content: result.datas.error,
+                                okBtn:false,
+                                cancelBtn:false,
+                                autoTime : 1700
+                            });
+                        } else {
+                            $.sDialog({
+                                skin:"opacity",
+                                content: '领取成功',
+                                okBtn:false,
+                                cancelBtn:false,
+                                autoTime : 1700
+                            });
+
+                     $('#get_coupon-' + coupon_id).attr('onclick', 'getCoupon(' +3 + ',' + coupon_id + ')');
+                     $('#ticket-info-' + coupon_id).html('<i class="had"></i><div class="coupon-btn coupon-btn-yellow">去使用</div>');
+                        }
+                    }
+                });
+        } else if(state == 3) {
+            if(coupon_t_wap_url) {
+                window.location.href = coupon_t_wap_url;
+            } else {
+                window.location.href = WapSiteUrl + '/html/product_list.html';
+            }
+
+        }
+    }
+
+
+    $(function(){
+        var key = getCookie('key');
+        //渲染list
+    /*    $.ajax({
+            url: ApiUrl + '/index.php?w=coupon&t=coupon_list&key=' + key,
+            type: 'get',
+            dataType: 'json',
+            success: function(result) {
+                var rpt_html = template.render('list_model', result.datas);
+                $('#rplist').html(rpt_html);
+                var load_class = new wtScrollLoad();
+                load_class.loadInit({'url':ApiUrl + '/index.php?w=voucher&t=voucher_list','getparam':{'key':key},'tmplid':'list_model1','containerobj':$("#vhlist"),'iIntervalId':true});
+            }
+        });*/
+		var load_class = new wtScrollLoad();
+        load_class.loadInit({'url':ApiUrl + '/index.php?w=coupon&t=coupon_list','getparam':{'key':key},'tmplid':'list_model','containerobj':$("#rplist"),'iIntervalId':true});
+    });
+</script>
+</body>
+</html>

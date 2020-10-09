@@ -1,0 +1,47 @@
+<?php defined('ShopWT') or exit('Access Denied By ShopWT'); return array (
+  'ap_id' => '1038',
+  'ap_name' => '闲置横栏广告',
+  'ap_class' => '0',
+  'ap_display' => '1',
+  'is_use' => '1',
+  'ap_width' => '1200',
+  'ap_height' => '90',
+  'show_num' => '2',
+  'click_num' => '0',
+  'default_content' => 'shopwt-fla2-1200-100.png',
+  'show_list' => 
+  array (
+    0 => 
+    array (
+      'show_id' => '921',
+      'ap_id' => '1038',
+      'show_title' => '闲置横栏广告2',
+      'show_content' => 'a:2:{s:8:"show_pic";s:21:"06117643594613116.jpg";s:12:"show_pic_url";s:0:"";}',
+      'show_start_date' => '1325347200',
+      'show_end_date' => '1622476800',
+      'slide_sort' => '0',
+      'member_id' => '0',
+      'member_name' => '',
+      'click_num' => '2',
+      'is_allow' => '1',
+      'buy_style' => '',
+      'goldpay' => '0',
+    ),
+    1 => 
+    array (
+      'show_id' => '920',
+      'ap_id' => '1038',
+      'show_title' => '闲置横栏广告1',
+      'show_content' => 'a:2:{s:8:"show_pic";s:21:"06117644622819389.jpg";s:12:"show_pic_url";s:0:"";}',
+      'show_start_date' => '1325347200',
+      'show_end_date' => '1622476800',
+      'slide_sort' => '0',
+      'member_id' => '0',
+      'member_name' => '',
+      'click_num' => '1',
+      'is_allow' => '1',
+      'buy_style' => '',
+      'goldpay' => '0',
+    ),
+  ),
+);

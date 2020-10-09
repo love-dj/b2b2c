@@ -1,0 +1,3 @@
+[2019-06-03 19:25:30] /home/index.php?w=login&t=login&inajax=1 ( w=login&t=login ) 
+ERR: Db Error: Unknown column 'distribution_level' in 'field list'
+UPDATE `lbsz_member` SET distribution_level='1' WHERE ( member_id = '6' )

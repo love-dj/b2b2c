@@ -1,0 +1,3 @@
+[2020-02-06 02:50:15] http://b2b2c.longbasz.com/index.php?w=sale&gc_id=&curpage=2 ( w=sale&t=index ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-16,16' at line 1
+SELECT * FROM `lbsz_p_xianshi_goods` WHERE ( state = '1' ) AND ( start_time <= '1580928615' ) AND ( end_time > '1580928615' ) ORDER BY xianshi_goods_id desc LIMIT -16,16  

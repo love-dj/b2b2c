@@ -1,0 +1,6 @@
+[2019-11-09 13:21:30] APP_SITE_URL/index.php?w=member_dis_return&t=index&key=c674587786ca0fce1cc38d51bc9bb051 ( w=member_dis_return&t=index ) 
+ERR: Db Error: Unknown column 'o.finnshed_time' in 'where clause'
+SELECT * FROM `lbsz_full_return` WHERE o.finnshed_time > 1573142400 AND o.finnshed_time < 1573228799 AND o.order_state >= 40 LIMIT 1  
+[2019-11-09 13:21:30] APP_SITE_URL/index.php?w=member_dis_return&t=index&key=c674587786ca0fce1cc38d51bc9bb051 ( w=member_dis_return&t=index ) 
+ERR: Db Error: Unknown column 'o.finnshed_time' in 'where clause'
+SELECT * FROM `lbsz_full_return` WHERE o.finnshed_time > 1573142400 AND o.finnshed_time < 1573228799 AND o.order_state >= 40 LIMIT 1  

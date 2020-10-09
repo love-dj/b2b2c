@@ -1,0 +1,6 @@
+[2019-12-05 22:48:38] /home/index.php?w=login&t=index ( w=login&t=index ) 
+ERR: Db Error: Unknown column 'invite_one' in 'where clause'
+SELECT member_id FROM `lbsz_member_chain` WHERE ( invite_one = '1' ) LIMIT 1000  
+[2019-12-05 22:48:38] /home/index.php?w=login&t=index ( w=login&t=index ) 
+ERR: Db Error: Unknown column 'invite_two' in 'where clause'
+SELECT member_id FROM `lbsz_member_chain` WHERE ( invite_two = '1' ) LIMIT 1000  

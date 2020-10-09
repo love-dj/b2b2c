@@ -1,0 +1,3 @@
+[2019-12-04 20:53:12] APP_SITE_URL/index.php?w=member_dis_return&t=buy_list&page=10&curpage=1 ( w=member_dis_return&t=buy_list ) 
+ERR: Db Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '} LIMIT 1' at line 1
+SELECT COUNT(*) AS wt_count FROM `lbsz_buy_return` AS `buy_return` LEFT JOIN `lbsz_orders` AS `orders` ON buy_return.order_id=orders.order_id WHERE order_state > 0 and status != -1 AND uid = 3} LIMIT 1  

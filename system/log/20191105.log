@@ -1,0 +1,9 @@
+[2019-11-05 10:48:55] http://b2b2c.longbasz.com/wt/shop/index.php?w=bill&t=get_bill_info_xml&query_type=refund&ob_id=5 ( w=bill&t=get_bill_info_xml ) 
+ERR: Db Error: Unknown table 'refund_return'
+SELECT refund_return.*,ROUND(refund_amount*commis_rate/100,2) as commis_amount FROM `lbsz_refund_return` WHERE ( seller_state = '2' ) AND ( store_id = '1' ) AND ( goods_id > '0' ) AND (  (admin_time BETWEEN '1569859200' AND '1572537599' ) ) LIMIT 0,15  
+[2019-11-05 10:57:46] /home/index.php?w=login&t=usersave&inajax=1 ( w=login&t=usersave ) 
+ERR: Db Error: Unknown column 'invite_one' in 'where clause'
+SELECT member_id FROM `lbsz_member_chain` WHERE ( invite_one = '27' ) LIMIT 1000  
+[2019-11-05 10:57:46] /home/index.php?w=login&t=usersave&inajax=1 ( w=login&t=usersave ) 
+ERR: Db Error: Unknown column 'invite_two' in 'where clause'
+SELECT member_id FROM `lbsz_member_chain` WHERE ( invite_two = '27' ) LIMIT 1000  

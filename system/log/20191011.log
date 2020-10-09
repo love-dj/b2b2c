@@ -1,0 +1,3 @@
+[2019-10-11 14:03:36] http://b2b2c.longbasz.com/wt/shop/index.php?w=bill&t=get_bill_info_xml&query_type=refund&ob_id=4 ( w=bill&t=get_bill_info_xml ) 
+ERR: Db Error: Unknown table 'refund_return'
+SELECT refund_return.*,ROUND(refund_amount*commis_rate/100,2) as commis_amount FROM `lbsz_refund_return` WHERE ( seller_state = '2' ) AND ( store_id = '1' ) AND ( goods_id > '0' ) AND (  (admin_time BETWEEN '1567267200' AND '1569859199' ) ) LIMIT 0,15  

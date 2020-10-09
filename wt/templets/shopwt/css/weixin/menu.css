@@ -1,0 +1,42 @@
+#diy_menu{padding-top:10px}
+.diy_menu_designer{width:360px; height:560px; float:left; border:1px #E5E5E5 solid; border-radius:10px; background:#F9F9F9}
+.diy_menu_designer .diy_menu_designer_top{width:100%; height:66px; font-size:1px; background:url('iphone_head.png') no-repeat center}
+.diy_menu_designer .diy_menu_designer_content{width:324px; height:400px; margin:0px auto; border:1px #C5C5C5 solid; border-bottom:none}
+.diy_menu_designer .diy_menu_designer_content .diy_menu_designer_content_top{height:64px; width:100%; background:url('titlebar.png') no-repeat center #22292C}
+.diy_menu_designer .diy_menu_designer_content ul{width:100%;}
+.diy_menu_designer .diy_menu_designer_content ul li{float:left;height:336px; position:relative; background:#FFF}
+.diy_menu_designer .diy_menu_designer_content ul li a{color:#333333; position:absolute; bottom:0px; width:100%; height:44px; display:block; text-align:center; line-height:44px; border-top:1px #e5e5e5 solid; border-bottom:1px #C5C5C5 solid; background:url('line.jpg') no-repeat left top #F9F9F9; font-size:14px;}
+.diy_menu_designer .diy_menu_designer_content .last a{background-image:none}
+.diy_menu_designer .diy_menu_designer_content .current a{background:#22292C; color:#FFF}
+.diy_menu_designer .diy_menu_designer_content .w162{width:162px;}
+.diy_menu_designer .diy_menu_designer_content .w108{width:108px;}
+.diy_menu_designer .diy_menu_designer_content ul li em{width:86px; position:absolute; bottom:55px; height:6px; background:url('arrow_01_down.jpg') no-repeat center;}
+.diy_menu_designer .diy_menu_designer_content ul li p{width:84px; position:absolute; bottom:60px; height:45px; border:1px #dfdfdf solid; border-radius:5px; margin:0px; padding:0px;}
+.diy_menu_designer .diy_menu_designer_content .w162 em,.diy_menu_designer .diy_menu_designer_content .w162 p{left:39px;}
+.diy_menu_designer .diy_menu_designer_content .w108 em,.diy_menu_designer .diy_menu_designer_content .w108 p{left:12px;}
+.diy_menu_designer .diy_menu_designer_content ul li p span{display:block; width:100%; height:44px; line-height:44px; font-size:14px; color:#333; text-align:center; cursor:pointer; border-bottom:1px #dfdfdf solid}
+.diy_menu_designer .diy_menu_designer_content .curr{background:#22292C; color:#FFF}
+.diy_menu_designer .diy_menu_designer_content ul li p span i{font-style:normal}
+.diy_menu_designer .diy_menu_designer_content ul li p span.child_add_btn{border-bottom:none}
+
+.diy_menu_right{margin:40px 0px 0px 15px; float:left; position:relative}
+.diy_menu_right .diy_menu_form{border:1px #e5e5e5 solid; border-radius:10px; background:#f9f9f9; margin-left:6px; padding:25px 15px}
+.diy_menu_right em{width:6px; height:12px; position:absolute; top:40px; left:1px; background:url('arrow_01_left.jpg') no-repeat left top}
+.diy_menu_right .diy_menu_form .diy_table{width:545px; border:1px #dfdfdf solid; background:#FFF; padding:0px 15px 15px;}
+.diy_menu_right .diy_menu_form .diy_table h2{padding:0px; margin:0px; height:60px; line-height:60px; font-size:14px;}
+.diy_menu_right .diy_menu_form .diy_table h2 s{display:block; float:right; width:24px; height:24px; background:url('delete.png') no-repeat center; margin:18px 18px 0px 0px; cursor:pointer}
+.diy_menu_right .diy_menu_form .diy_table .input_rows{background:#F8F8F8; border-radius:5px;}
+.diy_menu_right .diy_menu_form .diy_table .input_rows label{display:block; width:80px; text-align:center; float:left; height:42px; line-height:42px; font-size:14px; font-weight:bold}
+.diy_menu_right .diy_menu_form .diy_table .input_rows span{display:block; padding-right:15px; float:left; line-height:42px;} 
+.diy_menu_right .diy_menu_form .diy_table .input_rows span input[type='text']{display:block; height:40px; line-height:40px; border:1px #dfdfdf solid; border-radius:5px; font-size:14px; padding:0px 8px; width:400px; background:#FFF}
+.diy_menu_right .diy_menu_form .diy_table .input_rows span textarea{width:400px; padding:8px; background:#FFF; height:80px; border:1px #dfdfdf solid; border-radius:5px;}
+.diy_menu_right .diy_menu_form .diy_table .input_rows i{font: bold 14px/20px tahoma, verdana; color: #F60; vertical-align: middle; display: inline-block; margin-right: 5px;} 
+.m15{margin-top:15px;}
+.p20{ padding:20px 0px;}
+.pt20{ padding:20px 0px 0px;}
+.height20{width:100%; clear:both; height:20px; background:#F8F8F8}
+
+.diy_menu_designer .diy_menu_designer_footer{width:60px; height:60px; border:1px #dfdfdf solid; border-radius:50%; margin:14px auto 0px}
+
+.height80{width:100%; height:80px; font-size:1px; clear:both}
+#page_btn_submit{position:fixed; bottom:0px; width:100%; left:0px; height:80px; padding-top:20px; padding-left:10px; color: #000; background-color: #FFF;  border-top: 1px solid #ccc}

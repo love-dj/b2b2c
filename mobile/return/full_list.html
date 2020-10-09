@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>满额返现</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/member.css">
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/cart.css">
+</head>
+<body>
+<header id="header" class="fixed">
+  <div class="header-box">
+    <div class="header-l"><a href="javascript:history.go(-1)"><i class="back"></i></a></div>
+
+	<div class="header-title">
+      <h1>返现列表</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="wtm-nav-box">
+    <div class="wtm-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="wtm-main-box">
+  <div class="wtm-order-list">
+    <ul id="full-list">
+    </ul>
+  </div>
+
+</div>
+<div class="fix-block-r">
+	<a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="full-list-tmpl">
+<% var full_list = datas.full_list; %>
+	<% if(full_list.length > 0){%>
+		<%for(i=0;i<full_list.length;i++){%>
+		<li class="green-order-skin mt10">
+			<div class="wtm-order-item">
+				<div class="wtm-order-item-head" style="border-bottom:none;">
+				 <a class="store" href="full_log.html?id=<%=full_list[i].id;%>">队列ID：<%=full_list[i].id;%></a>
+					<span class="state">
+						<span class=""><%=full_list[i].createtime;%></span>
+					</span>
+				</div>
+				<div class="wtm-order-item-footer">
+					<div class="store-totle">
+						<span>总返现金额：￥<%=full_list[i].total_commission;%></span><br/>
+						<span>已返金额：￥<%=full_list[i].pay_commission;%>，</span>
+						<span>剩余返现金额：￥<%=full_list[i].balance_commission;%></span><br/>
+						<span>最近一次返现金额：￥<%=full_list[i].last_pay_commission;%></span><br/>
+						<span>最近一次返现时间：<%=full_list[i].updatetime;%></span><br/>
+						<span>状态：<%=full_list[i].status;%></span>
+					</div>
+				</div>
+			</div>
+		</li>
+	<%}%>
+	<% if (hasmore) {%>
+	<li class="loading"><div class="spinner"><i></i></div>返现数据读取中...</li>
+	<% } %>
+<%}else {%>
+	<div class="wtm-norecord order">
+		<div class="norecord-ico"><i></i></div>
+		<dl>
+			<dt>您还没有满额返现记录</dt>
+			<dd>购买指定产品可获得消费返现！！！</dd>
+		</dl>
+		<a href="<%=WapSiteUrl%>/html/member/member_invite.html" class="btn">去推广</a>
+	</div>
+<%}%>
+</script> 
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script> 
+<script type="text/javascript" src="../js/html/order_payment_common.js"></script> 
+<script type="text/javascript" src="js/full_list.js"></script>
+</body>
+</html>

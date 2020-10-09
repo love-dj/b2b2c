@@ -1,0 +1,61 @@
+/** 
+ * 描述：手机版商品分类
+ 
+ */
+@charset "utf-8";
+/*商品分类*/
+.categroy-cnt { width: 3.8rem; height: 84%; display: block; float: left; position: absolute; z-index: 1; top: 2rem; bottom: 0; left: 0; overflow: hidden;}
+
+/*分类一级导航*/
+.categroy-list { width: 3.8rem; display: block;overflow: hidden; }
+.category-item { display: block; width: 100%; height: 2rem; line-height: 2rem; background: #fff; text-align: center; position: relative; border-bottom:0.05rem solid #eee; border-right: 0.05rem solid #eee; box-sizing: border-box}
+.category-item-a { display: block; height: 2rem; width: 100%; }
+.ci-fcategory-name { color: #212121; font-size: 0.56rem; height: 2rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 100%;}
+.category-item.selected {background: #f3f5f7; border-right: 0}
+.category-item.selected  .ci-fcategory-name{color: #f23030;}
+.categroy-third-list { display: none; color: #666; border-bottom: 1px solid #ccc; box-shadow: 0 -2px 0 #e4e4e4 inset;/*border-top:2px solid #e4e4e4;*/ background: #f5f5f5; }
+.categroy-third-list li { border-bottom: 1px solid #dddddd; }
+.categroy-third-list a { color: #6d6d6d; display: block; padding: 15px 0px 15px 11px; }
+
+/* 分类子级内容 */
+.categroy-rgt { background-color: #FCFCFC; height: 84%; margin: 0.46rem 0.46rem 0; position: absolute; z-index: 1; left: 3.8rem; top: 2rem; bottom: 0; right: 0; overflow: hidden;}
+
+/* 品牌推荐 */
+.brands-recommend { font-size: 0; }
+.brands-recommend dd { background-color: #FFF; vertical-align: top; display: inline-block; width: 3rem; height: 3rem; padding: 0.2rem; margin: 0.3rem 0 0 0.3rem; }
+.brands-recommend dd a { display: block;border: 1px #fff solid}
+.brands-recommend dd a:hover { border: 1px #ED2E34 solid}
+.brands-recommend dd img { width: 100%; margin: 0.5rem 0; }
+.brands-recommend dd a { color: #333; }
+.brands-recommend dd p { font-size: 0.5rem; line-height: 1rem; white-space: nowrap; text-overflow: ellipsis; text-align: center; overflow: hidden;}
+
+/* 二三级分类 */
+.categroy-child-list { font-size: 0; width: 100%; background-color: #FFF;}
+.categroy-child-list dt { background-color: #f5f5f5; margin: 0.2rem 0; }
+.categroy-child-list dt a { display: block; width: 96%; height: 1.48rem; font-size: 0.6rem; line-height: 1.48rem; color: #212121;font-weight: 600;}
+.categroy-child-list dt i { width: 0.4rem; height: 0.4rem; vertical-align: middle; display: inline-block; border-radius: 0.2rem; margin-right: 0.4rem; }
+.categroy-child-list dt i.col0 { background-color: #ED5564;}
+.categroy-child-list dt i.col1 { background-color: #AC92ED;}
+.categroy-child-list dt i.col2 { background-color: #4FC0E8;}
+.categroy-child-list dt i.col3 { background-color: #A0D468;}
+.categroy-child-list dt i.col4 { background-color: #48CFAE;}
+.categroy-child-list dt i.col5 { background-color: #EC87BF;}
+.categroy-child-list dt i.col6 { background-color: #FFCE55;}
+.categroy-child-list dt i.col7 { background-color: #5D9CEC;}
+.categroy-child-list dt i.col8 { background-color: #FB6E52;}
+.categroy-child-list dt i.col9 { background-color: #AAB2BD;}
+.categroy-child-list dt i.arrow-r { display: block; width: 0.6rem; height: 0.6rem;  no-repeat 50% 50%; background-size: cover; float: right; margin: 0.5rem 0.5rem 0 0; opacity: 0.5;}
+.categroy-child-list dt:first-child { margin-top: 0;}
+.categroy-child-list dd { font-size: 0.55rem; line-height: 1.48rem; vertical-align: top; display: inline-block; width: 3rem; height: 1.48rem; padding: 0.2rem; margin-left: 0.3rem; border-radius: 0;}
+.categroy-child-list dd a { display: block; color: #444; white-space: nowrap;  text-overflow: ellipsis; overflow: hidden;}
+.categroy-child-list a:hover { color: #f23030}
+
+/*商品列表头部特征*/
+.wtm-product-header .header-inp {}
+.wtm-product-header .header-inp { margin: 0.275rem 3.8rem 0 2rem;}
+.wtm-product-header .header-inp .search-input { width: 7.5rem; color: #333;}
+.wtm-product-header .header-r a { padding: 0.5rem 0.6rem 0.5rem 0.2rem;}
+.wtm-product-header .header-r a.categroy { width: 0.975rem; height: 1.575rem; padding: 0.2rem 0.5rem 0.2rem 0.3rem;}
+.wtm-product-header .header-r a.categroy i { width: 100%; height: 1rem; background-image: url(../images/stiore_categroy_b.png); background-repeat: no-repeat; background-position: 50% 50%; background-size: 70%; opacity: 0.65;}
+.wtm-product-header .header-r a.categroy p {display: block; font-size: 0.45rem; line-height: 0.575rem; text-align: center; color: #555; }
+

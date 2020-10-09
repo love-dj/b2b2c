@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>区域代理佣金提现</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/member.css">
+
+</head>
+<body>
+  <header id="header" class="fixed">
+  <div class="header-box">
+    <div class="header-l"><a href="pdcashlist.html"><i class="back"></i></a></div>
+    <div class="header-title">
+      <h1>区域代理佣金提现</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="wtm-nav-box">
+    <div class="wtm-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="wtm-main-box">
+  <div id="pd_count" class="wtm-asset-info"><div class="container pre">
+		<i class="icon"></i>
+		    <dl>
+				<dt>最多可提现</dt>
+				<dd>￥<em id="allmoney">0.00</em></dd>
+			</dl>
+	</div></div>
+   <form>
+    <div class="wtm-inp-con">
+      <ul class="form-box">
+        <li class="form-item">
+          <h4>提现金额</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="pdc_amount" id="pdc_amount" autocomplete="off" placeholder="请输入提现的金额，不能大于预存款余额" oninput="writeClear($(this));"/>
+            <span class="input-del"></span> </div>
+        </li>
+        <li class="form-item">
+          <h4>收款方式</h4>
+          <div class="input-box">
+            <input type="tel" class="inp" name="pdc_bank_name" id="pdc_bank_name" autocomplete="off" placeholder="请输入提现方式：支付宝\微信\银行名称" oninput="writeClear($(this));"/>
+            <span class="input-del"></span> </div>
+        </li>
+		<li class="form-item">
+          <h4>收款账号</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="pdc_bank_no"  id="pdc_bank_no" autocomplete="off" placeholder="请输入您选择提现方式的账号" oninput="writeClear($(this));"/>
+          <span class="input-del"></span> </div>
+        </li>
+		<li class="form-item">
+          <h4>收&nbsp;&nbsp;款&nbsp;&nbsp;人</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="pdc_bank_user"  id="pdc_bank_user" autocomplete="off" placeholder="请输入对应的收款人姓名" oninput="writeClear($(this));"/>
+			<span class="input-del"></span> </div>
+        </li>
+        <li class="form-item">
+          <h4>手机号码</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="mobilenum" id="mobilenum" autocomplete="off" placeholder="请输入手机号码，我们方便联系您" oninput="writeClear($(this));">
+            <span class="input-del"></span> </div>
+        </li>
+        <li class="form-item">
+          <h4>支付密码</h4>
+          <div class="input-box">
+            <input type="text" class="inp" name="password" id="password" autocomplete="off" placeholder="请输入支付密码" oninput="writeClear($(this));">
+            <span class="input-del"></span> </div>
+        </li>
+      </ul>
+      <div class="error-tips"></div>
+      <div class="form-btn"><a class="btn" id="btn" href="javascript:;">提交</a></div>
+    </div>
+  </form>
+</div>
+<footer id="footer" class="bottom"></footer>
+<script> var navigate_id ="5";</script>
+<input type="hidden" name="referurl">
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/zepto.waypoints.js"></script>
+<script type="text/javascript" src="../js/wtscroll-load.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script>
+<script type="text/javascript" src="js/pd_cash.js"></script>
+</body>
+</html>

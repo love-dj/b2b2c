@@ -1,0 +1,144 @@
+<!doctype html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>拼团活动</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/goods_list.css">
+</head>
+<body>
+<header id="header" class="wtm-product-header fixed">
+	<div class="header-box">
+		<div class="header-l">
+			<a href="javascript:history.go(-1)">
+				<i class="back"></i>
+			</a>
+		</div>
+		<div class="header-title">
+			<h1>拼团活动</h1>
+		</div>
+		<div class="header-r">
+			<a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a>
+		</div>
+	</div>
+  <div class="wtm-nav-box">
+    <div class="wtm-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息</a></li>
+        <li><a href="cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="wtm-nav-container">
+  <div class="wtm-scroll-nav">
+    <div class="nav-content wa">
+      <ul id="nav-show-class" class="nav">
+      </ul>
+    </div>
+    <div class="nav-arrow" id="show_style"><a href="javascript:;"><span class="browse-list"></span></a>
+	  </div>
+  </div>
+</div>
+<div class="wtm-main-box mt40 mb20">
+  <div id="product_list" class="list">
+    <ul class="goods-secrch-list">
+    </ul>
+  </div>
+</div>
+<div class="fix-block-r">
+	<a href="member/views_list.html" class="browse-btn"><i></i></a>
+	<a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a>
+</div>
+<footer id="footer" class="bottom"></footer>
+<script type="text/html" id="nav-class-list">
+	<li class="active">
+				<a href="javascript:;" class="gc_active" date-id="0">最新推荐</a>
+			</li>
+	<% if(list.length >0){%>
+		<% for(var i = 0;i<list.length;i++){ if(list[i].is_show==1){ continue;} %>
+			<li>
+				<a href="javascript:;" class="gc_active" date-id="<%= list[i].gc_id %>"><%= list[i].gc_name %></a>
+			</li>
+        <%}%>
+    <%}else{%>
+    	
+    <%}%>
+
+	
+</script>
+</body>
+<script type="text/html" id="home_body">
+	<% var goods_list = datas.goods_list; %>
+	<% if(goods_list.length >0){%>
+			<%for(i=0;i<goods_list.length;i++){%>
+			<li class="goods-item" goods_id="<%=goods_list[i].goods_id;%>">
+				<span class="goods-pic">
+					<a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+						<img src="<%=goods_list[i].goods_image;%>"/>
+					</a>
+				</span>
+				<dl class="goods-content">
+					<dt class="goods-name">
+						<a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+							<h4><%=goods_list[i].goods_name;%></h4>							
+						</a>
+					</dt>
+						<dd class="goods-assist">
+							<a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">
+								<span class="goods-psold">销量<%=goods_list[i].goods_cun;%>件 , <del>￥<%=goods_list[i].goods_price;%></del>
+								</span>
+							</a>
+						</dd>
+						
+						<dd class="goods-pingou">
+                    		<div class="pingou-rank-sold">
+								<span class="pingou-title"><%=goods_list[i].min_num;%>人拼单</span>
+								<span class="sale-price">￥<%=goods_list[i].pingou_price;%></span>
+                            </div>
+					<div class="pingou-rank-btn">		
+                    <a href="product_detail.html?goods_id=<%=goods_list[i].goods_id;%>">去拼单</a>
+					</div>
+			</dd>
+	</dl>
+			</li>
+			<%}%>
+			<% if (hasmore) {%>
+			<li class="loading"><div class="spinner"><i></i></div>商品数据读取中...</li>
+			<% } %>
+	<%
+	   }else {
+	%>
+		<div class="wtm-norecord search">
+			<div class="norecord-ico"><i></i></div>
+				<dl>
+					<dt>没有找到任何相关信息</dt>
+					<dd>选择或搜索其它商品分类/名称...</dd>
+				</dl>
+			<a href="javascript:history.go(-1)" class="btn">重新选择</a>
+		</div>
+	<%
+	   }
+	%>
+</script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/iscroll.js"></script>
+<script type="text/javascript" src="../js/html/pingou_list.js"></script>
+<script type="text/javascript" src="../js/html/footer.js"></script>
+</html>

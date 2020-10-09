@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+/* ================================ */
+/* 触屏版最新相关样式类型				*/
+
+/* ================================ */
+body { background: #fff; width: 100%; overflow-x: hidden; }
+* { -webkit-tap-highlight-color: rgba(255,255,255,0); }
+.yh { font-family: 'Microsoft YaHei'; }
+.mwraper { width: 100%; position: relative; overflow-x: hidden; transition: all .5s; background: #f1f1f1; }
+a {
+    color: #333;
+    outline: 0 none;
+    text-decoration: none;
+    transition: color 0.1s ease 0s;
+}
+.main-wrap {
+    position: relative;
+    font-family: STHeiti,'Microsoft YaHei',Helvetica,sans-serif!important;
+ }
+.header h1 { color: #ff6700; }
+/*顶部菜单begin*/
+.news-menu-list { position: relative; background: #fff; padding: 10px 0 0; }
+.swiper-container {margin:0 auto; height: 45px; line-height: 30px;overflow-x: auto;-webkit-overflow-scrolling: touch;overflow-y: hidden; }
+
+.news-menu-list.fixed{background-color: rgba(248, 248, 248, 0.95);left: 0;position: fixed;right: 0; top: 1.8rem;z-index: 3;}
+.news-menu-list .sub-menu { height: 40px; line-height: 40px; border-top: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf; display: none; background: #f7f7f7; margin-top: 5px; padding: 0 5px; }
+.news-menu-list .sub-menu li { text-align: left; }
+.news-menu-list .sub-menu li.li-now a { color: #ff6700; }
+.news-menu-list ul { width: 500%; }
+.news-menu-list ul.moveToLeft { -webkit-transform: translate3d(-30px,0,0)!important; transform: translate3d(-30px,0,0)!important; }
+.news-menu-list ul li { float: left; text-align: center;padding: 4px;}
+.news-menu-list ul li:last-child { text-align: left; }
+.news-menu-list ul li a { text-decoration: none; display: inline-block; text-align: center; height: 27px; line-height: 25px; font-family: 'Microsoft YaHei'; color: #36353a; font-size: 0.7rem; font-weight:800;  padding: 0 12px; position: relative; }
+.news-menu-list ul li.curMenu a { border-bottom: 2px solid #ff6700; color: #ff6700; }
+.news-menu-list ul li.curMenu a:after { content: '.'; font-size: 0; display: block; border-width: 5px; border-style: solid; border-color: transparent transparent #ff6700 transparent; position: absolute; bottom: 0; left: 50%; margin-left: -6px; }
+/*顶部菜单end*/
+.news-list {}
+.news-list dl { margin: 0px 0 15px 0; background: #fff; padding-bottom: 5px; }
+.news-list dl dt h3 { padding: 0 10px; line-height: 45px; height: 45px; font-size: 14px; overflow: hidden; font-weight: normal; font-size: 16px; }
+.news-list dl dd { padding: 0 10px; }
+.news-list dl dd .news-detail .news-img { display: block; position: relative; }
+.news-list dl dd .news-detail .news-img span { display: block; height: 30px; padding: 5px 30px; text-align: center; line-height: 30px; position: absolute; right: 0; bottom: 0; color: #fff; background: rgba(0,0,0,.5); font-size: 14px; }
+.news-list dl dd .news-detail img, .newsinfo img { display: block; }
+/*资讯标题*/
+.news-list dl dd .news-detail h3 { font-size: 14px; font-weight: normal; margin: 10px 0; }
+.news-list dl dd .news-detail h3 a { color: #000; }
+.news-list dl dd .news-detail p { font-size: 14px; line-height: 25px; color: #666; overflow: hidden; max-height: 50px; margin-top: 10px; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.btn-grp { text-align: right; height: 31px; line-height: 31px; margin: 10px 0; color: #999; }
+.btn-grp a { display: inline-block; height: 32px; line-height: 32px; color: #999; }
+.btn-grp i, .newsinfo .news-content .news-title .type-time i { display: inline-block; width: 26px; height: 26px; margin-right: 2px; text-align: center; line-height: 26px; font-size: 20px; vertical-align: middle; background-image: url("../images/icon_time.png");background-position: 50% 50%;background-repeat: no-repeat;background-size: 70% auto;vertical-align: middle;}
+/*浏览量*/
+.news-detail .btn-grp i.icon-shiyongshijian { text-align: left; width: 20px; height: 20px; line-height: 20px; vertical-align: baseline; }
+.news-detail .btn-grp i.icon-dianzan { vertical-align: top; }
+.news-detail .btn-grp i.views { font-size: 25px; }
+.news-detail .btn-grp i.pinglun { font-size: 18px; }
+.news-detail .btn-grp .left { float: left }
+/*详细页*/
+.detail-wraper { background: #fff; padding: 0 10px; padding-bottom: 80px; -webkit-overflow-scrolling: touch; overflow: hidden; }
+.news-content .com-area .replay-area textarea::-webkit-input-placeholder { color: #39f; }
+.newsinfo {-webkit-overflow-scrolling:touch; }
+.newsinfo .news-content { }
+.newsinfo .news-content .news-title { position: relative; }
+.newsinfo .news-title h3 { color: #333; font-size: 18px; font-weight: bold; }
+.newsinfo .news-content .news-title .type-time { display: block; position: absolute; height: 25px; line-height: 25px; background: #fff; left: 0; top: -14px; display: none; }
+.newsinfo .news-content .news-title .type-time em { margin: 0 5px; }
+.newsinfo .news-content .word { }
+.newsinfo .news-content .word p { margin-bottom: 10px; line-height: 30px!important; font-size: 14px; overflow: hidden; font-family: 'Microsoft YaHei'; color: #666; }
+.newsinfo .news-content .word p img { display: block; margin: 0 auto; width: 100%!important;height:auto!important; }
+.newsinfo .news-content .zan-comment { padding-top: 15px; }
+.comment-title { height: 40px; line-height: 30px; color: #f30701; font-size: 16px; text-align: left; border-bottom: 1px solid #eee; font-weight: normal; margin-top: 10px; }
+.newsinfo .news-content .zan-comment h4.zan-icon { padding: 15px 0; background: url(/images/zhaoshang/zan-a-d.png) -86px center no-repeat; width: 77px; height: 77px; margin: 0 auto; }
+.newsinfo .news-content .zan-comment h4.curZan { background-position-x: 0; }
+.newsinfo .news-content .zan-comment .news-share { margin: 10px 0; display: none; }
+.newsinfo .news-content .zan-comment .news-share .share-title { text-align: center; }
+.newsinfo .news-content .zan-comment .news-share .share-title span { display: inline-block; vertical-align: middle; width: 30%; color: #999; }
+.newsinfo .news-content .zan-comment .news-share .share-title span:first-child { height: 1px; background: -webkit-linear-gradient(to left,#e0dddd,#ccc,#ddd, #fff); background: linear-gradient(to left,#e0dddd,#ccc,#ddd, #fff); }
+.newsinfo .news-content .zan-comment .news-share .share-title span:last-child { height: 1px; background: -webkit-linear-gradient(to right,to left,#e0dddd,#ccc,#ddd, #fff); background: linear-gradient(to right,#e0dddd,#ccc,#ddd, #fff); }
+.bdshare_popup_box { position: fixed!important; left: 0!important; top: 0%!important; right: 0!important; margin: auto!important; height: 290px; overflow: hidden; bottom: 0!important; }
+.bdshare-button-style0-32 a:hover { color: #68ace5!important; }
+.newsinfo .news-content .com-area { margin-top: 10px; text-align: right; }
+.newsinfo .news-content .com-area .textarea { width: 90%; height: 80px; border: 2px solid #aaa; margin: 0 auto; border-radius: 4px; display: none; }
+.news-content .com-area .com-list { padding-top: 5px; }
+.news-content .com-area .com-list dl { padding: 10px 0; margin: 5px 0; border-bottom: 1px solid #dfdfdf; }
+.news-content .com-area .com-list dl dt { float: left; }
+.news-content .com-area .com-list dl dt img { display: block; width: 35px; height: 35px; border-radius: 5px; }
+.news-content .com-area .com-list dl dd { margin-left: 45px; }
+.news-content .com-area .com-list dl dd p { text-align: left; line-height: 25px; color: #999; font-family: 'Microsoft YaHei'; word-break: break-all; word-wrap: break-word; }
+.news-content .com-area .com-list dl dd p.name { color: #3caaff; }
+.news-content .com-area .com-list dl dd p em { color: #999; }
+.news-content .com-area .com-list dl dd p.replay-btn { text-align: right; font-size: 12px; margin-top: -5px; }
+.news-content .com-area .com-list dl dd p.replay-btn a { display: inline-block; width: 120px; height: 25px; line-height: 25px; color: #666; }
+
+@keyframes zan {
+ 0% { transform: scale(1); }
+ 50% { transform: scale(1.5); color: #f90; }
+ 100% { transform: scale(1); color: #ff6700; }
+}
+
+/*评论输入框*/
+.bottom-comment { background: #f5f5f5; width: 100%; position: relative; transition: all .2s; z-index: 100; overflow: hidden; text-align: left; padding: 10px 0; box-shadow:0 -2px 5px rgba(0,0,0,.3);}
+.bottom-comment.cur { position: fixed; left: 0; bottom: 0; }
+.bottom-comment.fixed { position: fixed; left: 0; bottom: 0; width: 90%; height: auto; }
+.bottom-comment textarea { width: 100%; height: 40px; border-radius: 20px; background: #fff; border: 1px solid #f1f1f1; resize: none; line-height: 40px; text-indent: 5px; outline: none; -weikit-transition: all .5s; transition: all .5s; vertical-align: middle; }
+.bottom-comment textarea.curFocus { width: 100%; height: 95px; line-height: 20px; border-radius: 0px; }
+.bottom-comment .pl-zan { position: absolute; top: 50%; margin-top: -25px; right: -10px; z-index:101; height: 40px; line-height: 40px; }
+.bottom-comment .pl-zan span { display: inline-block; padding: 0 10px; cursor: pointer; position: relative; margin-top: 5px; }
+.bottom-comment .pl-zan span.pl em { position: absolute; top: 0; right: -1px; padding: 2px 3px; background: #f65744; color: #fff; height: 12px; line-height: 12px; border-radius: 5px; }
+.bottom-comment .pl-zan span.share { width: 16px; height: 16px; padding: 0; bottom: -2px; margin-right: 5px; }
+.bottom-comment .pl-zan span.zan { margin: 0 10px; }
+.bottom-comment .pl-zan span i { padding-right: 5px; }
+.bottom-comment .pl-zan span i.curZan + em { color: #ff6700; }
+.curZan, .curZan em { color: #ff6700!important; }
+.bottom-comment .btn-group { display: none; text-align: left; padding-left: 10px; }
+.bottom-comment .btn-group a { display: inline-block; width: 30%; height: 30px; line-height: 30px; text-align: center; border-radius: 5px; margin-top: 10px; font-size: 14px; }
+.bottom-comment .add-comment { background: #ff6700; color: #fff; margin-right: 8px; }
+.bottom-comment .cancel { background: #3caaff; color: #fff; }
+/*加载更多*/
+.load-more-news { margin: 10px 0; padding: 10px 0; text-align: center; display: none; }
+.load-more-news a { display: inline-block; padding: 2px 15px; color: #999; background: #c5c5c5; border-radius: 5px; }
+body, button, input, select, textarea {
+    font: 14px/1.5 tahoma,Verdana,arial,"microsoft yahei","sim sun";
+    color: #333;
+    -ms-overflow-style: scrollbar;
+}

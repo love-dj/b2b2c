@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>账号设置</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/member.css">
+
+</head>
+<body>
+  <header id="header" class="fixed">
+  <div class="header-box">
+    <div class="header-l"><a href="javascript:history.go(-1)"><i class="back"></i></a></div>
+    <div class="header-title">
+      <h1>账号编辑</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a> </div>
+  </div>
+  <div class="wtm-nav-box">
+    <div class="wtm-nav-menu"> <span class="arrow"></span>
+      <ul>
+        <li><a href="../index.html"><i class="home"></i>首页</a></li>
+        <li><a href="../html/search.html"><i class="search"></i>搜索</a></li>
+        <li><a href="../html/product_first_categroy.html"><i class="categroy"></i>分类</a></li>
+        <li><a href="javascript:void(0);"><i class="message"></i>消息<sup></sup></a></li>
+        <li><a href="../html/cart_list.html"><i class="cart"></i>购物车<sup></sup></a></li>
+        <li><a href="../html/member/member.html"><i class="member"></i>我的商城</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+<div class="wtm-main-box">
+  <div id="pd_count" class="wtm-asset-info"><div class="container pre">
+		<i class="icon"></i>
+		    <dl>
+				<dt>最多可提现</dt>
+				<dd>￥<em id="allmoney">0.00</em></dd>
+			</dl>
+	</div></div>
+  <div id="fixed_nav" class="wtm-single-nav">
+    <ul id="filtrate_ul" class="w20h">
+      <ul>
+		<li class="selected"><a href="javascript:void(0);">账户设置</a></li>
+		<li><a href="fx_commission.html">账户余额</a></li>
+		<li><a href="fx_cash.html">提现记录</a></li>
+		<li><a href="fx_apply.html">提现申请</a></li>
+      </ul>
+    </ul>
+
+  </div>
+   <form>
+    <div class="wtm-inp-con">
+      <ul class="form-box">
+        <li class="form-item">
+          <h4>用户名</h4>
+          <div class="txt-box" id="membername"></div>
+        </li>
+        <li class="form-item">
+          <h4>邮箱</h4>
+          <div class="txt-box" id="memberemail"></div>
+        </li>
+		<li class="form-item">
+          <h4>结算账户类型</h4>
+          <div class="txt-box">
+          <input name="bill_type_code" value="bank" type="radio">&nbsp;银行账号
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input name="bill_type_code" value="alipay" checked="checked" type="radio">&nbsp;支付宝
+        </div>
+        </li>
+		<li class="form-item">
+          <h4>收款人</h4>
+          	<div class="input-box">
+            <input type="text" name="bill_user_name" id="bill_user_name" class="inp" maxlength="30" placeholder="请输入收款人" oninput="writeClear($(this));" onFocus="writeClear($(this));"/><span class="input-del"></span>
+			</div>
+        </li>
+		<li class="form-item">
+          <h4>收款账号</h4>
+          	<div class="input-box">
+            	<input type="text" name="bill_type_number" id="bill_type_number" class="inp" maxlength="50" placeholder="请输入收款账号" oninput="writeClear($(this));" onFocus="writeClear($(this));"/><span class="input-del"></span>
+			</div>
+        </li>
+		<li class="form-item" id="bank_name" style="display: none;">
+          <h4>开户行</h4>
+          	<div class="input-box">
+            	<input type="text" name="bill_bank_name" id="bill_bank_name" class="inp no-follow" maxlength="50" placeholder="请输入开户行" oninput="writeClear($(this));" onFocus="writeClear($(this));"/><span class="input-del"></span>
+			</div>
+        </li>
+      </ul>
+      <div class="error-tips"></div>
+      <div class="form-btn "><a class="btn" id="btn" href="javascript:;">提交</a></div>
+    </div>
+  </form>
+</div>
+<footer id="footer" class="bottom"></footer>
+<input type="hidden" name="referurl">
+<script type="text/javascript" src="../js/config.js"></script> 
+<script type="text/javascript" src="../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../js/template.js"></script> 
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/wtscroll-load.js"></script> 
+<script type="text/javascript" src="../js/simple-plugin.js"></script>
+<script>
+$(function(){
+    var b_type = 'alipay';
+    $('input[type="radio"]').on('change',function(){
+      b_type = $(this).val();
+      if(b_type == 'bank'){
+        $('#bank_name').show();
+      }else{
+        $('#bank_name').hide();
+      }
+    });	
+	
+	var key = getCookie('key');
+	var predepoit_=0;
+	//获取预存款余额
+	$.getJSON(ApiUrl + '/index.php?w=member_fx&t=my_asset', {'key':key}, function(result){
+		
+		$("#allmoney").html(result.datas.available_fx_trad);
+		$("#membername").html(result.datas.member_name);
+		$("#memberemail").html(result.datas.member_email);
+		$("#bill_bank_name").html(result.datas.bill_bank_name);
+		predepoit_=result.datas.available_fx_trad;
+	});	
+	
+	$('#btn').click(function(){
+		var key = getCookie('key');
+		if(key==''){
+			location.href = '../html/member/login.html';
+		}
+		var bill_user_name = $('#bill_user_name').val();
+		var bill_type_number = $('#bill_type_number').val();
+		var bill_bank_name = $('#bill_bank_name').val();
+		var bill_type_code = $("input[name='bill_type_code']:checked").val();;
+		if(bill_user_name =='')
+		{
+			alert('请输入收款人！');
+			return false;
+		}
+		if(bill_type_number =='')
+		{
+			alert('请输入收款账号！');
+			return false;
+		}
+		
+		if(bill_type_code =='bank' && bill_bank_name =='')
+		{
+			alert('请输入开户行！');
+			return false;
+		}
+		var client = 'wap';
+		
+		$.ajax({
+			type:'post',
+			url:ApiUrl+"/index.php?w=member_fx&t=save_member",	
+			data:{bill_user_name:bill_user_name,bill_type_number:bill_type_number,bill_bank_name:bill_bank_name,bill_type_code:bill_type_code,key:key,client:client},
+			dataType:'json',
+			success:function(result){
+				if(!result.datas.error){
+					$(".error-tips").hide();
+					location.href = 'fx_access.html';
+					
+				}else{
+					  $.sDialog({
+						skin:"red",
+						content:result.datas.error,
+						okBtn:false,
+						cancelBtn:false
+					}); 
+					//$(".error-tips").html(result.datas.error).show();
+				}
+			}
+		 });  
+        
+	});
+	
+	
+	
+	
+});	
+</script>
+</body>
+</html>

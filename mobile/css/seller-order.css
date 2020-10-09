@@ -1,0 +1,21 @@
+.wtm-order-search {
+    padding: 0.5rem;
+    height: auto;
+}
+.wtm-order-search input[type="text"] {
+    margin: auto;
+    box-sizing: border-box;
+    height: 1.5rem;
+    width: 100%;
+}
+.wtm-order-search input[type="button"] {
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    cursor: pointer;
+}
+.wtm-order-search .write .input-del {
+    left: -0.5rem;
+    top: -0.5rem;
+    cursor: pointer;
+}

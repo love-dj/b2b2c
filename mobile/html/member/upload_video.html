@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>短视频上传</title>
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
+<link rel="stylesheet" type="text/css" href="../../css/member.css">
+</head>
+<body>
+<header id="header">
+  <div class="header-box">
+    <div class="header-l"> <a href="member.html"> <i class="back"></i> </a> </div>
+    <div class="header-title">
+      <h1>短视频上传</h1>
+    </div>
+    <div class="header-r"> <a id="header-nav" href="address_opera.html"><i class="add"></i></a> </div>
+  </div>
+</header>
+<div class="wtm-main-box mb20">
+    <dl class="row">
+        <dt class="tit">
+            <label>视频上传</label>
+        </dt>
+        <!--{$goodsInfo.original_img}-->
+        <dd class="opt">
+            <div class="input-file-show">
+                <div>
+                    <input type="file" name="FileUpload" id="FileUpload">
+                    <a class="layui-btn layui-btn-mini" id="btn_uploadimg" style="cursor: pointer;">上传视频</a>
+                </div>
+
+
+            </div>
+
+        </dd>
+    </dl>
+</div>
+<footer id="footer" class="bottom"></footer>
+
+<script> var navigate_id ="5";</script> 
+<script type="text/javascript" src="../../js/zepto.min.js"></script> 
+<script type="text/javascript" src="../../js/config.js"></script> 
+<script type="text/javascript" src="../../js/template.js"></script> 
+<script type="text/javascript" src="../../js/common.js"></script> 
+<script type="text/javascript" src="../../js/simple-plugin.js"></script> 
+<!--<script type="text/javascript" src="../../js/html/address_list.js"></script> -->
+<script type="text/javascript" src="../../js/html/footer.js"></script> 
+</body>
+</html>
+<script>
+	function ajax_get_table(tab){
+		var files = document.getElementById("images").files;
+		var form = new FormData()
+		form.append('file',files)
+		$.ajax({
+			type : "POST",
+			url:ApiUrl+'/index.php?w=upload_video&t=up',
+			data : {form:form},// 你的formid
+			dataType: 'json',
+			async: false,
+			success: function(data){
+
+			}
+		});
+	}
+
+    $("#btn_uploadimg").click(function(){
+        var fileObj = document.getElementById("FileUpload").files[0]; // js 获取文件对象
+        if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
+            alert("请选择视频");
+            return;
+        }
+        var formFile = new FormData();
+        formFile.append("action", "UploadVMKImagePath");
+        formFile.append("file", fileObj); //加入文件对象
+        var data = formFile;
+        $.ajax({
+            url:ApiUrl+'/index.php?w=upload_video&t=up',
+            data: data,
+            type: "Post",
+            dataType: "json",
+            cache: false,//上传文件无需缓存
+            processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+            success: function (result) {
+                console.log(result);
+                alert(result.msg);
+                $("#video").val(result.data.file);
+            }
+        })
+    });
+
+
+</script>

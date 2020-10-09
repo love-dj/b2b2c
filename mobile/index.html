@@ -1,0 +1,525 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1" />
+<title>首页</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style>
+		/**{border:0;margin: 0;padding: 0;}*/
+		/*@charset "utf-8";*/
+		/*html { font-size : 20px; }*/
+
+		/*@media only screen and (min-width: 360px) {*/
+		/*	html { font-size: 22px !important; }*/
+		/*}*/
+		/*@media only screen and (min-width: 376px) {*/
+		/*	html { font-size: 23px !important; }*/
+		/*}*/
+		/*@media only screen and (min-width: 414px) {*/
+		/*	html { font-size: 25px !important; }*/
+		/*}*/
+		/*@media only screen and (min-width: 641px) {*/
+		/*	html { font-size: 25px !important; }*/
+		/*}*/
+		.banner{background: url(./icons/bannerbg.png)top no-repeat;height: 8rem;width: 100% ;background-size: 100% auto;}
+		.Search{height: 2.3rem;width: 100%;}
+		/*.Search{height: 4.2rem;width: 17rem; margin:0px;}*/
+		.Search img{height: 0.66rem;margin:0.70rem 0rem 0.2rem 0.5rem;float: left;}
+		.Search input{height: 1.2rem;width: 9.8rem;margin:0.5rem 0.1rem 0rem -0.2rem;border-radius: 6rem;float: left;font-size: 0.6rem;color: #B0B0B0;padding-left: 0.3rem;}
+		.Search a{font-size: 0.6rem;color: #fff;float: left; margin-left:0.68rem;line-height: 2.4rem;}
+		.bannerimg{width: 94%;margin: 0rem auto;}
+		.bannerimg img{width: 100%;  margin: 0 auto;}
+
+
+
+		/*.tsnrbox a{line-height: 2.7rem;color: #888;float: right;text-decoration:none;}*/
+		.lbbox{background:#fff;width: 100%;}
+		.lbtbbox{height: 5.8rem;padding-top:1.7rem;text-align: center;color: #666;font-size: 1rem;}
+		/*.lbtbbox{height: 8rem;padding-top:1rem;text-align: center;color: #666;font-size: 1rem;}*/
+		.lbtb{
+			float: left;
+			margin-bottom: 0.5rem;
+			font-size: 0.1rem;
+			margin-bottom: 1.1rem;
+			font-size: 0.5rem;
+			width: 20%;
+		}
+		/*.lbtb img{width: 2rem;margin:0rem 0.7rem;}*/
+		.lbtb img{width: 1.8rem;margin:-0.8rem 0.1rem 0.1rem 0.1rem;}
+		.lbtb a{
+			display: block;
+			 color:black;
+		}
+
+		.tsbox{background:#fff; background-size: 100% auto}
+		.tsnrbox{width: 100%;height: 1.2rem; margin-top:0.25rem;text-align: center;color: #666;font-size: 0.6rem; }
+		.tsnrbox img{float: left;float: left;  width: 1.3rem;margin:0rem 0.7rem}
+		.tsnrbox p{line-height: 1.2rem;float: left;width: 8rem;text-align: left; font-size: 0.6rem;}
+		.tsnrbox a{line-height: 1.2rem;color: #888;float: right; text-decoration:none; margin-right:0.4rem ;}
+		.hdbox{background-size: 100% auto;margin:0 0.5rem;margin-top: 0.4rem;height: 6.5rem;}
+		.hdimg1 img{width: 49%; height: 6.2rem; float: left;}
+		.hdimg2 img{width: 48%;float: right; height:2.92rem;padding:0rem 0.1rem 0.1rem 0.3rem;}
+		.hdimg2-2{margin-bottom: 0.24rem; }
+
+		.jpbox{background:#fff;width: 37rem;background-size: 100% auto;margin:0 1.09rem;margin-top: 0.9rem;height: 35rem;border-radius: 0.5rem;}
+		.jptb{background: url(./icons/btbg.png)top no-repeat;background-size: 100% auto;height: 1.5rem; width: 100%; position: relative;
+			left: -0.5rem;}
+		.jptb h6{line-height: 1.5rem;color: #fff;margin-left: 0.6rem;float: left;font-size: 0.6rem;}
+		.jptb a{line-height: 1.5rem;text-align: right;float: right;color: #888;text-decoration:none;font-size: 0.5rem;margin-right: 0.6rem;}
+		
+		ul.goods-list {  background-color: #fff; width: 16.2rem; margin: 0.4rem  auto;  border-radius : 0.2rem;  padding: 0.2rem 0; display: flex; justify-content: space-between; flex-wrap: wrap; padding:  0 0.2rem; overflow: hidden; }
+		/*--商品图片*/
+		.item-goods ul.goods-list li {
+			
+			margin: 0.4rem 0;
+			height: 7.4rem;
+			background-color: #f1f1f1; 
+			vertical-align: top; display: inline-block; width: 32%; padding-top:0rem; overflow: hidden; border-bottom: 1px solid #F0F0F0;  overflow: hidden; border-radius:0.26rem  ; }
+		/*字体*/
+		.item-goods ul.goods-list li dd.goods-price em { font-size: 0.8rem; color: #e12e2e }
+		.item-goods ul.goods-list li dd.goods-price img { width: 0.8rem; height: 0.9rem; }
+		.item-goods ul.goods-list li dd.goods-price { display: block; width: 144%; position: relative; left: -1.6rem;  line-height: 1rem;color: #cccccc;margin-bottom: 0.6rem;  margin: 0.1rem  0.1rem; transform: scale(0.6);}
+		.item-goods ul.goods-list li dd.goods-price del { transform: scale(0.8); }
+		/*//商品图片*/
+		.item-goods ul.goods-list li dt.goods-name { display: block; font-size: 0.65rem;  color: #000; margin: 0px ;  max-height:1.85rem; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+		.item-goods ul.goods-list li .goods-pic img { display: block;  width: 100%;  height: 5.3rem;  margin: 0 auto;}
+		.goods-content{
+			padding: 0.06rem;
+		}
+		.goods-content img{
+			display: block;
+			position: relative;
+			top:-2rem ;
+			width: 0.6rem;
+			height: 0.6rem;
+			top: -1rem;
+    		left: 4.2rem;
+		} 
+		.item-goods ul.goods-list li dl { padding: 0.1rem;}
+		/*打折下面导航图片*/
+		.gg1{margin-top: 0.9rem;}
+		.gg1img{width: 17.1rem; margin:-1rem 0.5rem 0rem 0rem;}
+		.show_list{
+			width: 94%;margin: 0rem auto; height: 5.8rem;
+			overflow: hidden; 
+			border-radius:0.6rem ;
+			
+		}
+		.swipe-wrap{
+			height: 100%;
+		}
+		.swipe-wrap img{
+			display: block;
+			width: 100%;
+			height: 5.8rem;
+			margin: 0 auto;
+		}
+		.Search_a{
+			position: relative;
+		}
+		.Search_a img {
+			position: absolute;
+			width: 0.8rem;
+			height: 0.8rem;
+			left: 8rem;
+		}
+		
+		
+	
+
+	</style>
+	
+</head>
+<!--<div class="sybox">-->
+<!--<div class="wtm-home-top fixed-Width">-->
+<!--  <header id="header" class="transparent">-->
+<!--    <div class="logo"></div>-->
+<!--    <div class="header-box"> <a href="html/search.html" class="header-inp"> <i class="icon"></i> <span class="search-input" id="keyword">请输入关键词</span> </a> </div>-->
+<!--    <div class="header-r"><a id="header-nav" href="html/member/chat_list.html"><i class="message"></i>-->
+<!--      <p>登录</p>-->
+<!--      <sup></sup></a></div>-->
+<!--  </header>-->
+<!--静态-->
+<div class="banner">
+	<div class="Search">
+		<img src="./icons/logo.png" alt="">
+		<a href="html/search.html" class="Search_a"><input type="text" placeholder="请输入商品名称" name="" id="" value="" /><img src="./images/search_ico.png" alt=""></a>
+		<a href="http://b2b.com/mobile/html/member/login.html">登录</a>
+	</div>
+	<!-- <div class="bannerimg">
+		<img src="./icons/banner.png" alt="">
+	</div> -->
+
+
+  <div class="show_list" id="main-container1"></div>
+</div>
+  <div>
+	  <div class="lbbox">
+		  <div class="lbtbbox">
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/shop.html"><img src="./icons/sy10-1.png" alt=""><p>店铺街</p></a></div>
+			  <div class="lbtb"><a href="#jptb"><img src="./icons/sy10-2.png" alt=""><p>特卖会</p></a></div>
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/html/product_robbuy.html"><img src="./icons/sy10-3.png" alt=""><p>促销</p></a></div>
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/html/product_robbuy.html"><img src="./icons/sy10-4.png" alt=""><p>拼团</p></a></div>
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/html/pointspro_list.html"><img src="./icons/sy10-5.png" alt=""><p>积分购</p></a></div>
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/html/product_list.html"><img src="./icons/sy10-6.png" alt=""><p>新品发售</p></a></div>
+			  <div class="lbtb"><a href="#item-goods"><img src="./icons/sy10-7.png" alt=""><p>热销推荐</p></a></div>
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/html/product_dazhe.html"><img src="./icons/sy10-8.png" alt=""><p>折扣专区</p></a></div>
+			  <div class="lbtb"><a href="http://b2b2c.longbasz.cn/mobile/html/member/signin.html"><img src="./icons/sy10-9.png" alt=""><p>抽奖专区</p></a></div>
+			  <div class="lbtb"><a href="javascript:;"><img src="./icons/sy10-10.png" alt=""><p>更多商品</p></a></div>
+		  </div>
+	  </div>
+  </div>
+
+
+
+<!--<div class="wtm-home-nav fixed-Width" id="main-container1"></div>-->
+
+<div class="tsbox">
+	<div class="tsnrbox">
+		<img src="./icons/ts.png" alt="">
+		<p>这里是最新公告或热点新闻</p>
+		<span><a href="html/article_list.html?ac_id=1" >查看更多</a></span>
+	</div>
+</div>
+<!--<div class="wt-gd-body fixed-Width">-->
+<!--	<span><a href="html/article_list.html?ac_id=1" class="tsnrbox a">更多...</a></span>-->
+<!--    <img class="component-typewt-logo" src="images/gg_w.png" height="22" width="22">-->
+<!--    <div class="rollTextMenus" id="getgg"></div>-->
+<!--</div>-->
+<!--红包导航-->
+<!--</div>-->
+<script type="text/html" id="home1">
+<!--	<div class="wtm-home-block">-->
+<!--		<% if (title) { %>-->
+<!--				<div class="tit-bar"><span><%= title %></span></div>-->
+<!--		<% } %>-->
+<!--		<div class="item-pic">-->
+<!--			<a href="<%= url %>">-->
+<!--				<img src="<%= image %>" alt="">-->
+<!--			</a>-->
+<!--		</div>-->
+<!--	</div>-->
+
+<div class="hdbox">
+	<div class="hdimg1"><img src="./icons/pt.png" alt=""></div>
+	<div class="hdimg2"><img class="hdimg2-2" src="./icons/ms.png" alt=""><a href="<%= url %>"><img src="./icons/cj.png" alt=""></a></div>
+</div>
+</script>
+
+<div class="wtm-home-box" id="main-container2"></div>
+<div class="fix-block-r"> <a href="javascript:void(0);" class="gotop-btn gotop hide" id="goTopBtn"><i></i></a> </div>
+<footer id="footer"></footer>
+
+<script type="text/html" id="getgg_tpl">
+<% for (var i=0;i<article_list.length;i++) {%>
+ <div id="rollTextMenu<%=i+1%>"  style="display: <% if (i==0) { %> block <% }else{ %>none<% } %>" > <a href="html/article_show.html?article_id=<%=article_list[i].article_id%>"><%=article_list[i].article_title%></a></div>
+<% } %>
+</script>
+<!--轮播图-->
+<script type="text/html"  id="show_list">
+		<div class="swipe-wrap">
+		<% for (var i in item) { %>
+			<div class="item">
+				<a href="<%= item[i].url %>">
+					<img src="<%= item[i].image %>" alt="">
+				</a>
+			</div>
+		<% } %>
+	</div>
+</script>
+<script type="text/html" id="home1">
+	<div class="wtm-home-block">
+	<% if (title) { %>
+		<div class="tit-bar"><span><%= title %></span></div>
+	<% } %>
+		<div class="item-pic">
+			<a href="<%= url %>">
+				<img src="<%= image %>" alt="">
+			</a>
+		</div>
+	</div>
+</script>
+<script type="text/html" id="home2">
+<!--<div class="wtm-home-block">-->
+<!--	<% if (title) { %>-->
+<!--		<div class="tit-bar"><span><%= title %></span></div>-->
+<!--	<% } %>-->
+<!--		<ul class="item-pic-l1-r2">-->
+<!--			<li>-->
+<!--				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>-->
+<!--			</li>-->
+<!--			<li>-->
+<!--				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>-->
+<!--			</li>-->
+<!--			<li>-->
+<!--				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>-->
+<!--			</li>-->
+<!--		</ul>-->
+<!--	</div>-->
+
+</script>
+<script type="text/html" id="home3">
+	<div class="wtm-home-block">
+	<% if (title) { %>
+		<div class="tit-bar"><span><%= title %></span></div>
+	<% } %>
+		<ul class="item-pic-list">
+		<% for (var i in item) { %>
+			<li>
+				<a href="<%= item[i].url %>"><img src="<%= item[i].image %>" alt=""></a>
+			</li>
+		<% } %>
+		</ul>
+	</div>
+</script>
+<script type="text/html" id="home4">
+	<div class="wtm-home-block">
+	<% if (title) { %>
+		<div class="tit-bar"><span><%= title %></span></div>
+	<% } %>
+		<ul class="item-pic-l2-r1">
+			<li>
+				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</li>
+		</ul>
+	</div>
+</script>
+<script type="text/html" id="home5">
+	<div class="wtm-home-block style_lc">
+	<% if (title) { %>
+		<div class="tit-bar"><span><%= title %></span></div>
+		<% if (stitle) { %>
+		<div class="stit"><%= stitle %></div>
+		<% } %>
+	<% } %>
+		<ul class="item-pic-l1-r2">
+			<li>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a><a href="<%= rectangle3_url %>"><img src="<%= rectangle3_image %>" alt=""></a>
+			</li>
+		</ul>
+	</div>
+</script>
+<script type="text/html" id="home6">
+	<div class="wtm-home-block style_lc">
+	<% if (title) { %>
+		<div class="tit-bar">
+		<img src="<%= lcurl %>" alt="">
+		<span><%= title %></span>
+		<span class="stit"><%= stitle %></span>
+		</div>
+	<% } %>
+		<ul class="item-pic-w3">
+			<li>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+			</li>
+		</ul>
+	</div>
+</script>
+<script type="text/html" id="home7">
+	<ul>
+	 <li><a href="<%= square_url %>"><span><i style="background:<%= square_ico_color %> url(<%= square_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= square_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle1_url %>"><span><i style="background:<%= rectangle1_ico_color %> url(<%= rectangle1_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle1_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle2_url %>"><span><i style="background:<%= rectangle2_ico_color %> url(<%= rectangle2_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle2_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle3_url %>"><span><i style="background:<%= rectangle3_ico_color %> url(<%= rectangle3_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle3_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle4_url %>"><span><i style="background:<%= rectangle4_ico_color %> url(<%= rectangle4_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle4_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle5_url %>"><span><i style="background:<%= rectangle5_ico_color %> url(<%= rectangle5_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle5_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle6_url %>"><span><i style="background:<%= rectangle6_ico_color %> url(<%= rectangle6_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle6_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle7_url %>"><span><i style="background:<%= rectangle7_ico_color %> url(<%= rectangle7_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle7_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle8_url %>"><span><i style="background:<%= rectangle8_ico_color %> url(<%= rectangle8_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle8_ico_name %></p></a>
+	  </li>
+	  <li><a href="<%= rectangle9_url %>"><span><i style="background:<%= rectangle9_ico_color %> url(<%= rectangle9_image %>) no-repeat 50% 50%;background-size:50% 50%;border-radius: 100%;"></i></span><p><%= rectangle9_ico_name %></p></a>
+	  </li>
+	</ul>
+</script>
+<script type="text/html" id="home8">
+	<div class="wtm-home-block style_lc">
+	<% if (title) { %>
+		<div class="tit-bar">
+		<img src="<%= lcurl %>" alt="">
+		<span><%= title %></span>
+		<span class="stit"><%= stitle %></span>
+		</div>
+	<% } %>
+		<ul class="item-pic-w4">
+			<li>
+				<a href="<%= square_url %>"><img src="<%= square_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle1_url %>"><img src="<%= rectangle1_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle2_url %>"><img src="<%= rectangle2_image %>" alt=""></a>
+			</li>
+			<li>
+				<a href="<%= rectangle3_url %>"><img src="<%= rectangle3_image %>" alt=""></a>
+			</li>
+		</ul>
+	</div>
+</script>
+<!--最新上架-->
+<script type="text/html" id="goods">
+	
+	<div class="wtm-home-block item-goods" id="item-goods" name="item-goods" >
+	<% if (title) { %>
+
+	<% } %>
+		<ul class="goods-list">
+			<div class="jptb"><h6>最新上架</h6><a href="">查看更多</a></div>
+		<% for (var i in item) { %>
+			<li>
+				<a href="html/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<dl class="goods-content">
+						<dt class="goods-name"><%= item[i].goods_name %></dt>
+						<dd class="goods-price"><em>￥<%= item[i].goods_sale_price %></em><span class="pingou-price" style="margin-left: 8px; transform: scale(0.6);"><span><del>￥<%= item[i].goods_marketprice %></del></span></span></dd>
+						<img src="./icons/gwc.png" alt="">
+					</dl>
+				</a>
+			</li>
+		<% } %>
+		</ul>
+	</div>
+</script>
+<!--打折-->
+<script type="text/html" id="goods1">
+<!--<div class="wtm-home-block style_lc xianshi">-->
+<div class="wtm-home-block item-goods">
+	<% if (title) { %>
+<!--	<div class="tit-bar"><span><%= title %></span></div>-->
+	<% } %>
+<!--<div class="xianshi-list">-->
+	<ul class="goods-list">
+		<div class="jptb" id="jptb" name="jptb" ><h6>限时打折</h6><a href="">查看更多</a>
+		</div>
+		<% for (var i in item) { %>
+
+			<li>
+				<a href="html/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<dl class="goods-content">
+						<dt class="goods-name"><%= item[i].goods_name %></dt>
+						
+						<dd class="goods-price"><em>￥<%= item[i].xianshi_price %></em><span style="margin-left: 8px; transform: scale(0.8);"><del>￥<%= item[i].goods_price %></del></span></dd>
+						<img src="./icons/gwc.png" alt="">
+						</dl>
+
+				</a>
+			</li>
+		<% } %>
+		</ul>
+	<div class="gg1"><a href=""><img class="gg1img" src="./icons/gg1.png" alt=""></a></div>
+	</div>
+<!--	</div>-->
+</script>
+<script type="text/html" id="goods2">
+	<div class="wtm-home-block item-goods">
+	<% if (title) { %>
+		<div class="tit-bar"><span><%= title %></span></div>
+	<% } %>
+		<ul class="goods-list"  >
+		<% for (var i in item) { %>
+			<li>
+				<a href="html/product_detail.html?goods_id=<%= item[i].goods_id %>">
+					<div class="goods-pic"><img src="<%= item[i].goods_image %>" alt=""></div>
+					<dl class="goods-content">
+						<dt class="goods-name"><em class="goods-group">抢购</em><%= item[i].goods_name %></dt>
+						<dd class="goods-price">￥<em><%= item[i].goods_sale_price %></em></dd>
+						<img src="img/gwc.png" alt="">
+					</dl>
+			</a>
+				</li>
+
+		<% } %>
+		</ul>
+	</div>
+
+</script>
+<script> var navigate_id ="1";</script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--
+<script type="text/javascript" src="../system/static/js/common.js"></script>
+-->
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/html/footer.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/iscroll.js"></script>
+<script type="text/javascript" src="../js/html/categroy-frist-list.js"></script>
+
+</body>
+</html>
+<script>
+	/*$.ajax({
+		url:ApiUrl+"/index.php?w=index&t=getgg",
+		type:'get',
+		data:{ac_id:1},
+		jsonp:'callback',
+		dataType:'jsonp',
+		success:function(result){
+			var data = result.datas;
+			console.log(result)
+			data.WapSiteUrl = WapSiteUrl;
+			var html = template.render('getgg_tpl', data);
+			$("#getgg").html(html);
+		}
+	});
+*/
+</script>
+
+
+<!--	<script>window.onload = function () {-->
+<!--		var html = document.querySelector("html");-->
+<!--		html.style.fontSize = (html.offsetWidth / 750) * 100 + "px";-->
+<!--		addEventListener(-->
+<!--				"resize",-->
+<!--				function () {-->
+<!--					html.style.fontSize = (html.offsetWidth / 750) * 100 + "px";-->
+<!--				},-->
+<!--				false-->
+<!--		);-->
+<!--	};-->
+<!--	</script>-->
+
+
